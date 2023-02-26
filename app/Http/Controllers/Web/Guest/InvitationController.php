@@ -40,6 +40,7 @@ class InvitationController extends Controller
 
         $invitation->is_already_received = true;
         $invitation->time_received = date('H:i:s');
+        $invitation->save();
 
         return view('guest.invitation_accepted')->with([
             'wedding' => $wedding,
