@@ -15,6 +15,14 @@ class InvitationController extends Controller
     {
         $this->authorize('viewQrCode', [Invitation::class, $wedding, $invitation]);
 
+        if ($invitation->is_already_received) {
+
+            return view('guest.invitation_accepted')->with([
+                'wedding' => $wedding,
+                'invitation' => $invitation,
+            ]);
+        }
+
         return view('guest.invitation')->with([
             'wedding' => $wedding,
             'invitation' => $invitation,
