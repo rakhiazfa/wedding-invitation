@@ -89,9 +89,9 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Invitation Code</th>
                         <th>Guest Name</th>
                         <th>Invitation Link</th>
+                        <th>Already Come?</th>
                         <th>#</th>
                     </tr>
                 </thead>
@@ -99,14 +99,25 @@
                     @foreach ($wedding->invitations as $invitation)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $invitation->code }}</td>
                             <th>{{ $invitation->guest_name }}</th>
-                            <th>
+                            <td>
                                 <a class="text-blue-500 hover:underline" href="{{ $invitation->callback_link }}"
                                     target="_blank">
                                     {{ $invitation->callback_link }}
                                 </a>
-                            </th>
+                            </td>
+                            <td>
+                                @if ($invitation->is_already_received)
+                                    <div
+                                        class="w-max bg-emerald-500 text-white text-xs font-medium rounded-full px-2 py-1">
+                                        Yes
+                                    </div>
+                                @else
+                                    <div class="w-max bg-red-500 text-white text-xs font-medium rounded-full px-2 py-1">
+                                        No
+                                    </div>
+                                @endif
+                            </td>
                             <th>
                                 <div class="table-actions">
                                     <button type="button" class="copy-to-clipboard"
