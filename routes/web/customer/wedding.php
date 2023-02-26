@@ -24,5 +24,5 @@ Route::name('customer.weddings')->prefix('/{username}/weddings')->middleware(['a
      * 
      */
 
-    require_once __DIR__ . './wedding/invitation.php';
+    require_once __DIR__ . '/wedding/invitation.php';
 });
