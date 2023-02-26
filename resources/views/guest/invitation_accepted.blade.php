@@ -1,4 +1,4 @@
-<x-cube.layout title="Welcome {{ $invitation->guest_name }}">
+<x-cube.layout title="{{ $invitation->guest_name }}">
 
     <main class="min-h-screen bg-[#f6f8fa]">
 
