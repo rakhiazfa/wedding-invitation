@@ -8,7 +8,7 @@
 
                 <div class="relative bg-white w-[400px] min-h-screen p-5">
 
-                    <table class="table table-sm table-borderd">
+                    <table class="table table-sm table-bordered">
                         <tr>
                             <th>Name</th>
                             <td>: {{ $invitation->guest_name }}</td>
