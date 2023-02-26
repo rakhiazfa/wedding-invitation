@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('invitations', function (Blueprint $table) {
             $table->id();
             $table->string('code')->unique();
-            $table->text('qr_code_link')->unique();
+            $table->string('qr_code_link', 455)->unique();
             $table->string('guest_name');
             $table->boolean('is_already_received')->default(false);
             $table->time('time_received')->nullable();
