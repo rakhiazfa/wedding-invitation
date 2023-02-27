@@ -51,7 +51,7 @@
 
             </div>
 
-            <div class="relative w-full h-full">
+            <div class="hidden lg:block relative w-full h-full">
                 <img class="w-full h-full object-cover object-center" src="{{ url('assets/images/wedding.jpg') }}"
                     alt="Wedding Photo">
                 <div class="absolute inset-0 bg-[rgba(0,0,0,0.25)]"></div>
