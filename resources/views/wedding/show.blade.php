@@ -6,31 +6,33 @@
 
         <x-cube.card title="Wedding Details">
 
-            <table class="table table-sm">
-                <tr>
-                    <th>Wedding Name</th>
-                    <td>: {{ $wedding->name ?? '-' }}</td>
-                </tr>
-                <tr>
-                    <th>Couple Name</th>
-                    <td>: {{ $wedding->couple_name ?? '-' }}</td>
-                </tr>
-                <tr>
-                    <th>Couple Date</th>
-                    <td>: {{ date('d F Y', strtotime($wedding->date ?? '')) }}</td>
-                </tr>
-                <tr>
-                    <th>Wedding Hall</th>
-                    <td>: {{ $wedding->hall ?? '-' }}</td>
-                </tr>
-                <tr>
-                    <th class="align-top">Wedding Address</th>
-                    <td class="flex items-start gap-x-2 align-top">
-                        <span>:</span>
-                        <p>{{ $wedding->address ?? '-' }}</p>
-                    </td>
-                </tr>
-            </table>
+            <div class="table-responsive">
+                <table class="table table-sm">
+                    <tr>
+                        <th>Wedding Name</th>
+                        <td>: {{ $wedding->name ?? '-' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Couple Name</th>
+                        <td>: {{ $wedding->couple_name ?? '-' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Couple Date</th>
+                        <td>: {{ date('d F Y', strtotime($wedding->date ?? '')) }}</td>
+                    </tr>
+                    <tr>
+                        <th>Wedding Hall</th>
+                        <td>: {{ $wedding->hall ?? '-' }}</td>
+                    </tr>
+                    <tr>
+                        <th class="align-top">Wedding Address</th>
+                        <td class="flex items-start gap-x-2 align-top">
+                            <span>:</span>
+                            <p>{{ $wedding->address ?? '-' }}</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
 
         </x-cube.card>
 

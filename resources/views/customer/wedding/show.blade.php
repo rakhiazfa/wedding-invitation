@@ -85,82 +85,85 @@
 
         <x-cube.card title="Invitations">
 
-            <table class="table table-sm">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Guest Name</th>
-                        <th>Invitation Link</th>
-                        <th>Already Come?</th>
-                        <th>#</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($wedding->invitations as $invitation)
+            <div class="table-responsive">
+                <table class="table table-sm">
+                    <thead>
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <th>{{ $invitation->guest_name }}</th>
-                            <td>
-                                <a class="text-blue-500 hover:underline" href="{{ $invitation->callback_link }}"
-                                    target="_blank">
-                                    {{ $invitation->callback_link }}
-                                </a>
-                            </td>
-                            <td>
-                                @if ($invitation->is_already_received)
-                                    <div
-                                        class="w-max bg-emerald-500 text-white text-xs font-medium rounded-full px-2 py-1">
-                                        Yes
-                                    </div>
-                                @else
-                                    <div class="w-max bg-red-500 text-white text-xs font-medium rounded-full px-2 py-1">
-                                        No
-                                    </div>
-                                @endif
-                            </td>
-                            <th>
-                                <div class="table-actions">
-                                    <button type="button" class="copy-to-clipboard"
-                                        data-value="{{ $invitation->callback_link }}" title="Copy Link">
-                                        <i class="uil uil-link text-inherit"></i>
-                                    </button>
-
-                                    <button type="button" class="modal-trigger"
-                                        data-target="#cancelInvitationModal-{{ $loop->iteration }}" title="Delete">
-                                        <i class="uil uil-trash-alt"></i>
-                                    </button>
-                                </div>
-                            </th>
+                            <th>No</th>
+                            <th>Guest Name</th>
+                            <th>Invitation Link</th>
+                            <th>Already Come?</th>
+                            <th>#</th>
                         </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($wedding->invitations as $invitation)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <th>{{ $invitation->guest_name }}</th>
+                                <td>
+                                    <a class="text-blue-500 hover:underline" href="{{ $invitation->callback_link }}"
+                                        target="_blank">
+                                        {{ $invitation->callback_link }}
+                                    </a>
+                                </td>
+                                <td>
+                                    @if ($invitation->is_already_received)
+                                        <div
+                                            class="w-max bg-emerald-500 text-white text-xs font-medium rounded-full px-2 py-1">
+                                            Yes
+                                        </div>
+                                    @else
+                                        <div
+                                            class="w-max bg-red-500 text-white text-xs font-medium rounded-full px-2 py-1">
+                                            No
+                                        </div>
+                                    @endif
+                                </td>
+                                <th>
+                                    <div class="table-actions">
+                                        <button type="button" class="copy-to-clipboard"
+                                            data-value="{{ $invitation->callback_link }}" title="Copy Link">
+                                            <i class="uil uil-link text-inherit"></i>
+                                        </button>
 
-                        <div class="modal" id="cancelInvitationModal-{{ $loop->iteration }}">
-                            <div class="modal-content top">
-                                <div class="header">
-                                    <h4>Are you absolutely sure?</h4>
-                                </div>
-                                <form
-                                    action="{{ route('customer.weddings.invitations.cancel_invitation', [
-                                        'username' => request()->route('username'),
-                                        'wedding' => $wedding,
-                                        'invitation' => $invitation,
-                                    ]) }}"
-                                    method="POST" id="cancelInvitationForm-{{ $loop->iteration }}">
-                                    @csrf
-                                    @method('DELETE')
-                                </form>
-                                <div class="footer flex justify-end gap-x-5">
-                                    <button type="button"
-                                        class="btn btn-sm btn-info modal-cancel-trigger">Cancel</button>
-                                    <button type="button" class="btn btn-sm btn-border btn-danger form-trigger"
-                                        data-target="#cancelInvitationForm-{{ $loop->iteration }}">
-                                        Delete
-                                    </button>
+                                        <button type="button" class="modal-trigger"
+                                            data-target="#cancelInvitationModal-{{ $loop->iteration }}" title="Delete">
+                                            <i class="uil uil-trash-alt"></i>
+                                        </button>
+                                    </div>
+                                </th>
+                            </tr>
+
+                            <div class="modal" id="cancelInvitationModal-{{ $loop->iteration }}">
+                                <div class="modal-content top">
+                                    <div class="header">
+                                        <h4>Are you absolutely sure?</h4>
+                                    </div>
+                                    <form
+                                        action="{{ route('customer.weddings.invitations.cancel_invitation', [
+                                            'username' => request()->route('username'),
+                                            'wedding' => $wedding,
+                                            'invitation' => $invitation,
+                                        ]) }}"
+                                        method="POST" id="cancelInvitationForm-{{ $loop->iteration }}">
+                                        @csrf
+                                        @method('DELETE')
+                                    </form>
+                                    <div class="footer flex justify-end gap-x-5">
+                                        <button type="button"
+                                            class="btn btn-sm btn-info modal-cancel-trigger">Cancel</button>
+                                        <button type="button" class="btn btn-sm btn-border btn-danger form-trigger"
+                                            data-target="#cancelInvitationForm-{{ $loop->iteration }}">
+                                            Delete
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
-                </tbody>
-            </table>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
 
         </x-cube.card>
 
