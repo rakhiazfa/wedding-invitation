@@ -47,7 +47,7 @@ $(document).ready(() => {
 
     setTimeout(() => {
         $(".preloader").remove();
-    }, 750);
+    }, 500);
 
     /**
      * Select2
