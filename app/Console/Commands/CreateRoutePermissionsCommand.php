@@ -33,7 +33,7 @@ class CreateRoutePermissionsCommand extends Command
         foreach ($routes as $route) {
             if (
                 $route->getName() != '' &&
-                $route->getAction()['middleware'] ?? false &&
+                isset($route->getAction()['middleware']) &&
                 $route->getAction()['middleware']['0'] === 'web'
             ) {
                 $permission = Permission::where('name', $route->getName())->first();
