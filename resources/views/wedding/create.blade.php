@@ -44,12 +44,14 @@
                         @enderror
                     </div>
 
-                    <div class="form-group" data-te-datepicker-init data-te-input-wrapper-init>
+                    <div class="form-group">
                         <label class="label">Wedding Date</label>
                         <div class="relative">
-                            <input type="text" class="field" name="date" placeholder="Select a date"
-                                data-te-datepicker-toggle-ref data-te-datepicker-toggle-button-ref
-                                value="{{ old('date') }}" />
+                            <div data-te-datepicker-init data-te-input-wrapper-init>
+                                <input type="text" class="field" name="date" placeholder="Select a date"
+                                    data-te-datepicker-toggle-ref data-te-datepicker-toggle-button-ref
+                                    value="{{ old('date') }}" />
+                            </div>
                         </div>
                         @error('date')
                             <p class="invalid-field">{{ $message }}</p>

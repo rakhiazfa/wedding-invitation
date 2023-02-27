@@ -525,7 +525,7 @@
 }
 
 .label {
-    @apply block text-sm 
+    @apply block text-xs sm:text-sm 
     text-gray-600 font-normal mb-2;
 }
 
@@ -550,7 +550,7 @@ select {
 */
 
 .modal {
-    @apply absolute inset-0 z-[15000] bg-[rgba(0,0,0,0.75)] 
+    @apply fixed top-0 inset-0 z-[15000] bg-[rgba(0,0,0,0.75)] 
     hidden justify-center items-center px-6 sm:px-8 md:px-12;
 }
 
@@ -650,7 +650,7 @@ select {
 */
 
 .preloader {
-    @apply absolute inset-0 z-[30000] 
+    @apply fixed top-0 inset-0 z-[30000] 
     flex justify-center items-center 
     bg-white;
 }
