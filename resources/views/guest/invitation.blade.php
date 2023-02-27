@@ -6,7 +6,7 @@
 
             <div class="normal-wrapper min-h-screen flex justify-center items-center">
 
-                <div class="relative bg-white w-full sm:w-[400px] min-h-screen">
+                <div class="relative bg-white w-full md:w-[400px] min-h-screen overflow-hidden">
 
                     <img class="w-full min-h-screen object-cover object-bottom"
                         src="{{ url('assets/images/wedding.jpg') }}" alt="Wedding">
