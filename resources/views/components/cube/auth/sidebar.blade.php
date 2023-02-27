@@ -12,7 +12,7 @@
                     </p>
                     <p
                         class="text-[0.65rem] lg:text-[0.7rem] text-gray-400 font-normal max-w-[175px] overflow-hidden whitespace-nowrap">
-                        {{ $user->email ?? '' }}
+                        {{ $user->email ?? $user->username ?? '' }}
                     </p>
                 </div>
             </div>
