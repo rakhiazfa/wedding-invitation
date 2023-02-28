@@ -83,7 +83,18 @@
 
         </x-cube.card>
 
-        <x-cube.card title="Invitations">
+        <x-cube.card title="Invitations" :actions="[
+            [
+                'type' => 'button',
+                'text' => 'Import',
+                'class' => 'btn-info',
+            ],
+            [
+                'text' => 'Export',
+                'url' => '#',
+                'class' => 'btn-info',
+            ],
+        ]">
 
             <div class="table-responsive">
                 <table class="table table-sm">
