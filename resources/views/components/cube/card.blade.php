@@ -16,7 +16,8 @@
                                 {{ $action['text'] ?? '' }}
                             </button>
                         @else
-                            <a class="btn btn-primary btn-xs btn-rounded" href="{{ $action['url'] ?? '' }}">
+                            <a class="btn btn-primary btn-xs btn-rounded {{ $action['class'] ?? '' }}"
+                                href="{{ $action['url'] ?? '' }}">
                                 {{ $action['text'] ?? '' }}
                             </a>
                         @endif
