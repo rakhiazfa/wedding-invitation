@@ -87,7 +87,7 @@
             [
                 'type' => 'button',
                 'text' => 'Import',
-                'class' => 'btn-info',
+                'class' => 'btn-info form',
             ],
             [
                 'text' => 'Export',
