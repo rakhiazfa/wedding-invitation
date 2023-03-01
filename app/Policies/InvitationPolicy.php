@@ -12,8 +12,12 @@ class InvitationPolicy
     /**
      * Determine whether the user can do any models.
      */
-    public function doAny(User $user, Wedding $wedding): bool
+    public function doAny(User $user, Wedding|string $wedding): bool
     {
+        if (!$wedding instanceof Wedding) {
+            $wedding = Wedding::find((int) $wedding);
+        }
+
         return $user->hasRole('customer') && $user->customer->id === $wedding->owner_id;
     }
 
