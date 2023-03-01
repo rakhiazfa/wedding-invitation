@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web\Customer;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Wedding\UpdateWeddingRequest;
+use App\Models\Invitation;
 use App\Models\Wedding;
 use App\Services\CustomerService;
 use App\Services\WeddingOrganizerService;
@@ -68,9 +69,12 @@ class WeddingController extends Controller
     {
         $this->authorize('view', $wedding);
 
-        $wedding->load('invitations');
+        $invitations = $wedding->invitations()->orderBy('id', 'DESC')->paginate(15);
 
-        return view('customer.wedding.show')->with('wedding', $wedding);
+        return view('customer.wedding.show')->with([
+            'wedding' => $wedding,
+            'invitations' => $invitations,
+        ]);
     }
 
     /**

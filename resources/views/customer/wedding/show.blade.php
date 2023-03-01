@@ -123,9 +123,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($wedding->invitations as $invitation)
+                        @foreach ($invitations as $invitation)
                             <tr>
-                                <td>{{ $loop->iteration }}</td>
+                                <td>
+                                    {{ ($invitations->currentPage() - 1) * $invitations->perPage() + $loop->iteration }}
+                                </td>
                                 <th>{{ $invitation->guest_name }}</th>
                                 <td>
                                     <a class="text-blue-500 hover:underline" href="{{ $invitation->callback_link }}"
@@ -189,6 +191,9 @@
                         @endforeach
                     </tbody>
                 </table>
+            </div>
+            <div class="mt-5">
+                {{ $invitations->links('pagination.tailwind') }}
             </div>
 
         </x-cube.card>
