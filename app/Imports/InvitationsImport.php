@@ -2,14 +2,18 @@
 
 namespace App\Imports;
 
-use App\Jobs\CreateInvitationJob;
 use App\Models\Invitation;
 use App\Models\Wedding;
 use App\Services\WeddingOrganizerService;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithChunkReading;
 
-class InvitationsImport implements ToModel
+class InvitationsImport implements ToModel, WithChunkReading, ShouldQueue
 {
+    use Importable;
+
     /**
      * @var Wedding
      */
@@ -27,6 +31,8 @@ class InvitationsImport implements ToModel
     {
         $this->wedding = $wedding;
         $this->weddingOrganizerService = $weddingOrganizerService;
+
+        $this->wedding->invitations()->delete();
     }
 
     /**
@@ -36,8 +42,13 @@ class InvitationsImport implements ToModel
      */
     public function model(array $row)
     {
-        CreateInvitationJob::dispatch($this->wedding, $this->weddingOrganizerService, [
+        return $this->weddingOrganizerService->createInvitation($this->wedding, [
             'guest_name' => $row[0],
         ]);
+    }
+
+    public function chunkSize(): int
+    {
+        return 1600;
     }
 }

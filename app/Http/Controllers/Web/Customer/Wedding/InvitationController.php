@@ -81,10 +81,7 @@ class InvitationController extends Controller
     {
         $request->validate(['invitations' => ['file', 'mimes:xlsx']]);
 
-        Excel::import(
-            new InvitationsImport($wedding, $this->weddingOrganizerService),
-            $request->file('invitations')
-        );
+        (new InvitationsImport($wedding, $this->weddingOrganizerService))->queue($request->file('invitations'));
 
         return back()->with('success', 'Successfully import invitations.');
     }
