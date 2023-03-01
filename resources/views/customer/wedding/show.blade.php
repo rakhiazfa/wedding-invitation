@@ -10,7 +10,7 @@
         <x-cube.alert type="success" message="{{ session('success') }}" class="mt-5"></x-cube.alert>
     @endif
 
-    <section class="grid grid-cols-1 xl:grid-cols-[1fr,425px] gap-7">
+    <section class="grid grid-cols-1 xl:grid-cols-[1fr,425px] 2xl:grid-cols-2 gap-7">
 
         <x-cube.card title="Wedding Details">
 
@@ -83,11 +83,22 @@
 
         </x-cube.card>
 
+        <form class="hidden"
+            action="{{ route('customer.weddings.invitations.import', [
+                'username' => request()->route('username'),
+                'wedding' => $wedding,
+            ]) }}"
+            method="POST">
+            @csrf
+            <input type="file" class="hidden" name="invitations" id="import-invitations">
+        </form>
+
         <x-cube.card title="Invitations" :actions="[
             [
                 'type' => 'button',
                 'text' => 'Import',
-                'class' => 'btn-info form',
+                'class' => 'btn-info click-trigger',
+                'target' => '#import-invitations',
             ],
             [
                 'text' => 'Export',

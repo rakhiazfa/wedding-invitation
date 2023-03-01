@@ -17,6 +17,10 @@ Route::name('.invitations')->prefix('/{wedding}/invitations')->group(function ()
 
         Route::post('/invite', [InvitationController::class, 'invite'])->name('.invite');
 
+        Route::post('/import', [InvitationController::class, 'import'])->name('.import');
+
+        Route::get('/export', [InvitationController::class, 'export'])->name('.export');
+
         Route::delete('/cancel-invitation/{invitation}', [InvitationController::class, 'cancelInvitation'])
             ->name('.cancel_invitation');
     });

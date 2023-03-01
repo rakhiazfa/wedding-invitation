@@ -275,7 +275,7 @@ $(document).ready(() => {
     });
 
     /**
-     * Form trigger.
+     * Handle form trigger button.
      *
      */
 
@@ -283,6 +283,17 @@ $(document).ready(() => {
         const target = e.target.getAttribute("data-target");
 
         $(target).submit();
+    });
+
+    /**
+     * Handle click trigger button.
+     *
+     */
+
+    $(".click-trigger").on("click", (e) => {
+        const target = e.target.getAttribute("data-target");
+
+        $(target).click();
     });
 
     /**

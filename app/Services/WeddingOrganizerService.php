@@ -82,4 +82,12 @@ class WeddingOrganizerService
 
         return $wedding->invitations()->save($this->invitation->newInstance($attributes));
     }
+
+    public function importInvitations()
+    {
+    }
+
+    public function exportInvitations()
+    {
+    }
 }
