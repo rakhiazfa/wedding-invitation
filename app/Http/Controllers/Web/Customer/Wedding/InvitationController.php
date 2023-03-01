@@ -12,6 +12,8 @@ use Exception;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
+use function GuzzleHttp\Promise\queue;
+
 class InvitationController extends Controller
 {
     /**
@@ -79,7 +81,10 @@ class InvitationController extends Controller
     {
         $request->validate(['invitations' => ['file', 'mimes:xlsx']]);
 
-        Excel::import(new InvitationsImport($wedding, $this->weddingOrganizerService), $request->file('invitations'));
+        Excel::import(
+            new InvitationsImport($wedding, $this->weddingOrganizerService),
+            $request->file('invitations')
+        );
 
         return back()->with('success', 'Successfully import invitations.');
     }

@@ -2,6 +2,7 @@
 
 namespace App\Imports;
 
+use App\Jobs\CreateInvitationJob;
 use App\Models\Invitation;
 use App\Models\Wedding;
 use App\Services\WeddingOrganizerService;
@@ -26,8 +27,6 @@ class InvitationsImport implements ToModel
     {
         $this->wedding = $wedding;
         $this->weddingOrganizerService = $weddingOrganizerService;
-
-        $this->wedding->invitations()->delete();
     }
 
     /**
@@ -37,7 +36,7 @@ class InvitationsImport implements ToModel
      */
     public function model(array $row)
     {
-        return $this->weddingOrganizerService->createInvitation($this->wedding, [
+        CreateInvitationJob::dispatch($this->wedding, $this->weddingOrganizerService, [
             'guest_name' => $row[0],
         ]);
     }
