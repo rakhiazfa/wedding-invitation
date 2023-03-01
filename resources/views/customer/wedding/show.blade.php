@@ -88,10 +88,14 @@
                 'username' => request()->route('username'),
                 'wedding' => $wedding,
             ]) }}"
-            method="POST">
+            method="POST" enctype="multipart/form-data" id="importInvitationsForm">
             @csrf
-            <input type="file" class="hidden" name="invitations" id="import-invitations">
+            <input type="file" class="hidden form-trigger-on-change" name="invitations"
+                data-target="#importInvitationsForm" id="import-invitations">
         </form>
+        @error('invitations')
+            <x-cube.alert type="error" message="{{ $message }}"></x-cube.alert>
+        @enderror
 
         <x-cube.card title="Invitations" :actions="[
             [

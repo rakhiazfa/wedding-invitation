@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Web\Customer\Wedding;
 
 use App\Http\Controllers\Controller;
+use App\Imports\InvitationsImport;
 use App\Models\Invitation;
 use App\Models\Wedding;
 use App\Services\WeddingOrganizerService;
 use Closure;
 use Exception;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class InvitationController extends Controller
 {
@@ -71,5 +73,18 @@ class InvitationController extends Controller
             'success',
             'Invitation successfully canceled for guest named ' . $invitation->guest_name . '.',
         );
+    }
+
+    public function import(Request $request, string $username, Wedding $wedding)
+    {
+        $request->validate(['invitations' => ['file', 'mimes:xlsx']]);
+
+        Excel::import(new InvitationsImport($wedding, $this->weddingOrganizerService), $request->file('invitations'));
+
+        return back()->with('success', 'Successfully import invitations.');
+    }
+
+    public function export(Request $request)
+    {
     }
 }

@@ -286,6 +286,17 @@ $(document).ready(() => {
     });
 
     /**
+     * Handle form trigger on change.
+     *
+     */
+
+    $(".form-trigger-on-change").on("change", (e) => {
+        const target = e.target.getAttribute("data-target");
+
+        $(target).submit();
+    });
+
+    /**
      * Handle click trigger button.
      *
      */
