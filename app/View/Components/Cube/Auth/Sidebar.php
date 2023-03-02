@@ -81,6 +81,8 @@ class Sidebar extends Component
             $this->user->can('customer.weddings'),
         );
 
+        $this->sidebarMenu->addMenuTitle('Permissions');
+
         $this->sidebarMenu->addLinkItem(
             'Roles and Pemissions',
             'uil uil-tag-alt',
