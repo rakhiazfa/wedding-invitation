@@ -9,24 +9,31 @@
             <div class="table-responsive">
                 <table class="table table-sm">
                     <tr>
-                        <th>Wedding Name</th>
+                        <th class="whitespace-nowrap">Wedding Name</th>
                         <td>: {{ $wedding->name ?? '-' }}</td>
                     </tr>
                     <tr>
-                        <th>Couple Name</th>
+                        <th class="whitespace-nowrap">Couple Name</th>
                         <td>: {{ $wedding->couple_name ?? '-' }}</td>
                     </tr>
                     <tr>
-                        <th>Couple Date</th>
+                        <th class="whitespace-nowrap">Wedding Date</th>
                         <td>: {{ date('d F Y', strtotime($wedding->date ?? '')) }}</td>
                     </tr>
                     <tr>
-                        <th>Wedding Hall</th>
+                        <th class="whitespace-nowrap">Time</th>
+                        <td>
+                            : {{ date('H:i', strtotime($wedding->time_start ?? '')) }} -
+                            {{ date('H:i', strtotime($wedding->time_finish ?? '')) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="whitespace-nowrap">Wedding Hall</th>
                         <td>: {{ $wedding->hall ?? '-' }}</td>
                     </tr>
                     <tr>
-                        <th class="align-top">Wedding Address</th>
-                        <td class="flex items-start gap-x-2 align-top">
+                        <th class="align-top whitespace-nowrap">Wedding Address</th>
+                        <td class="flex items-start align-top gap-x-2">
                             <span>:</span>
                             <p>{{ $wedding->address ?? '-' }}</p>
                         </td>
@@ -38,17 +45,17 @@
 
         <x-cube.card title="Owner" class="h-max">
 
-            <div class="flex justify-between items-center gap-10">
+            <div class="flex items-center justify-between gap-10">
                 <div class="flex items-center gap-7">
                     <img class="w-[50px] h-[50px] rounded-xl shadow-lg"
                         src="{{ $wedding->owner->user->avatar ? url('storage/' . $user->avatar) : $defaultAvatarImage }}"
                         alt="Avatar">
 
-                    <span class="text-sm lg:text-base font-normal">{{ $wedding->owner->name ?? '-' }}</span>
+                    <span class="text-sm font-normal lg:text-base">{{ $wedding->owner->name ?? '-' }}</span>
                 </div>
 
                 <a href="{{ route('customers.show', ['customer' => $wedding->owner]) }}">
-                    <i class="uil uil-eye text-gray-400"></i>
+                    <i class="text-gray-400 uil uil-eye"></i>
                 </a>
             </div>
 

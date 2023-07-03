@@ -21,6 +21,7 @@ class CustomerSeeder extends Seeder
             'email' => 'ginanjar0823@gmail.com',
             'password' => Hash::make('12345678'),
         ]);
+        $user->assignRole('customer');
 
         $customer = new Customer([
             'name' => 'Ginanjar Mugi Widodo',

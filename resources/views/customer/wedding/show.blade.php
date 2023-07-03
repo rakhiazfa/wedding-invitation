@@ -16,24 +16,31 @@
 
             <table class="table table-sm">
                 <tr>
-                    <th>Wedding Name</th>
+                    <th class="whitespace-nowrap">Wedding Name</th>
                     <td>: {{ $wedding->name ?? '-' }}</td>
                 </tr>
                 <tr>
-                    <th>Couple Name</th>
+                    <th class="whitespace-nowrap">Couple Name</th>
                     <td>: {{ $wedding->couple_name ?? '-' }}</td>
                 </tr>
                 <tr>
-                    <th>Couple Date</th>
+                    <th class="whitespace-nowrap">Wedding Date</th>
                     <td>: {{ date('d F Y', strtotime($wedding->date ?? '')) }}</td>
                 </tr>
                 <tr>
-                    <th>Wedding Hall</th>
+                    <th class="whitespace-nowrap">Time</th>
+                    <td>
+                        : {{ date('H:i', strtotime($wedding->time_start ?? '')) }} -
+                        {{ date('H:i', strtotime($wedding->time_finish ?? '')) }}
+                    </td>
+                </tr>
+                <tr>
+                    <th class="whitespace-nowrap">Wedding Hall</th>
                     <td>: {{ $wedding->hall ?? '-' }}</td>
                 </tr>
                 <tr>
-                    <th class="align-top">Wedding Address</th>
-                    <td class="flex items-start gap-x-2 align-top">
+                    <th class="align-top whitespace-nowrap">Wedding Address</th>
+                    <td class="flex items-start align-top gap-x-2">
                         <span>:</span>
                         <p>{{ $wedding->address ?? '-' }}</p>
                     </td>
@@ -138,12 +145,12 @@
                                 <td>
                                     @if ($invitation->is_already_received)
                                         <div
-                                            class="w-max bg-emerald-500 text-white text-xs font-medium rounded-full px-2 py-1">
+                                            class="px-2 py-1 text-xs font-medium text-white rounded-full w-max bg-emerald-500">
                                             Yes
                                         </div>
                                     @else
                                         <div
-                                            class="w-max bg-red-500 text-white text-xs font-medium rounded-full px-2 py-1">
+                                            class="px-2 py-1 text-xs font-medium text-white bg-red-500 rounded-full w-max">
                                             No
                                         </div>
                                     @endif
@@ -178,7 +185,7 @@
                                         @csrf
                                         @method('DELETE')
                                     </form>
-                                    <div class="footer flex justify-end gap-x-5">
+                                    <div class="flex justify-end footer gap-x-5">
                                         <button type="button"
                                             class="btn btn-sm btn-info modal-cancel-trigger">Cancel</button>
                                         <button type="button" class="btn btn-sm btn-border btn-danger form-trigger"
