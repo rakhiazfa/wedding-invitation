@@ -35,8 +35,7 @@
 @layer base {
 
     * {
-        @apply text-gray-800 font-poppins 
-        font-light antialiased;
+        @apply text-[0.9rem] antialiased font-light text-gray-800 font-poppins;
     }
 
     a, button {
@@ -101,12 +100,13 @@
     outline: none !important;
     transition: all .15s ease-in-out;
 
-    @apply border rounded-lg border-gray-300;
+    @apply border border-gray-300 rounded-lg;
 }
 
 .select2.select2-container .select2-selection .select2-selection__rendered {
     line-height: 38px;
     padding-right: 39px;
+    padding-left: 0.75rem;
     
     @apply font-normal text-gray-500;
 }
@@ -145,7 +145,7 @@
     transition: all .15s ease-in-out;
     padding: 0.25rem 0.25rem 0.25rem 0.25rem !important;
 
-    @apply border rounded-lg border-gray-300;
+    @apply border border-gray-300 rounded-lg;
 }
 
 .select2.select2-container .select2-selection--multiple .select2-search--inline .select2-search__field {
@@ -166,7 +166,7 @@
     border: none !important;
     border-radius: 3px !important;
 
-    @apply w-max flex items-center bg-blue-500;
+    @apply flex items-center bg-blue-500 w-max;
 }
   
 .select2.select2-container .select2-selection--multiple .select2-selection__choice .select2-selection__choice__display {
@@ -180,7 +180,7 @@
     height: 100%;
     aspect-ratio: 1 / 1;
 
-    @apply flex justify-center items-center hover:bg-blue-600;
+    @apply flex items-center justify-center hover:bg-blue-600;
 }
 
 .select2.select2-container .select2-selection--multiple .select2-selection__choice .select2-selection__choice__remove span {
@@ -212,7 +212,7 @@
 }
 
 .wrapper .main {
-    @apply px-5 md:px-7 2xl:px-9 pb-5; 
+    @apply px-5 pb-5 md:px-7 2xl:px-9; 
 }
 
 .wrapper section {
@@ -299,9 +299,7 @@
 }
 
 .sidebar .sidebar-dropdown .dropdown-menu {
-    @apply h-0 overflow-hidden 
-    transition-all duration-300 
-    flex flex-col justify-center gap-y-3;
+    @apply flex flex-col justify-center h-0 overflow-hidden transition-all duration-300 gap-y-3;
 }
 
 .sidebar .sidebar-dropdown .dropdown-menu .sidebar-link {
@@ -318,8 +316,7 @@
 }
 
 .topbar .topbar-container {
-    @apply w-full flex justify-between items-center 
-    px-5 md:px-7 2xl:px-9;
+    @apply flex items-center justify-between w-full px-5 md:px-7 2xl:px-9;
 }
 
 .topbar .topbar-left {
@@ -357,9 +354,7 @@
 }
 
 .topbar .topbar-dropdown .dropdown-link {
-    @apply flex items-center gap-3 px-3 py-2 
-    hover:bg-gray-50 rounded-lg 
-    text-gray-500;
+    @apply flex items-center gap-3 px-3 py-2 text-gray-500 rounded-lg hover:bg-gray-50;
 }
 
 .topbar .topbar-dropdown .dropdown-link span {
@@ -384,12 +379,11 @@
 }
 
 .table {
-    @apply w-full rounded-sm overflow-hidden 
-    whitespace-nowrap xl:whitespace-normal;
+    @apply w-full overflow-hidden rounded-sm whitespace-nowrap xl:whitespace-normal;
 }
 
 .table thead {
-    @apply bg-gray-100 uppercase;
+    @apply uppercase bg-gray-100;
 }
 
 .table thead th {
@@ -398,12 +392,12 @@
 }
 
 .table th {
-    @apply text-gray-500 font-medium;
+    @apply font-medium text-gray-500;
 }
 
 .table th,
 .table td {
-    @apply text-left text-xs md:text-sm px-8 py-4;
+    @apply px-8 py-4 text-xs text-left md:text-sm;
 }
 
 .table .table-actions {
@@ -465,61 +459,55 @@
 }
 
 .btn.btn-primary {
-    @apply bg-blue-500 hover:bg-blue-600 text-white;
+    @apply text-white bg-blue-500 hover:bg-blue-600;
 }
 
 .btn.btn-secondary {
-    @apply bg-pink-500 hover:bg-pink-600 text-white;
+    @apply text-white bg-pink-500 hover:bg-pink-600;
 }
 
 .btn.btn-success {
-    @apply bg-emerald-400 hover:bg-emerald-500 text-white;
+    @apply text-white bg-emerald-400 hover:bg-emerald-500;
 }
 
 .btn.btn-danger {
-    @apply bg-red-500 hover:bg-red-600 text-white;
+    @apply text-white bg-red-500 hover:bg-red-600;
 }
 
 .btn.btn-info {
-    @apply bg-gray-100 hover:bg-gray-200 text-gray-800;
+    @apply text-gray-800 bg-gray-100 hover:bg-gray-200;
 }
 
 .btn.btn-dark {
-    @apply bg-gray-800 hover:bg-gray-900 text-white;
+    @apply text-white bg-gray-800 hover:bg-gray-900;
 }
 
 .btn.btn-border {
-    @apply bg-transparent hover:bg-transparent border font-medium;
+    @apply font-medium bg-transparent border hover:bg-transparent;
 }
 
 .btn.btn-border.btn-primary {
-    @apply bg-blue-50 hover:bg-blue-500 border-blue-600 
-    text-blue-500 hover:text-white;
+    @apply text-blue-500 border-blue-600 bg-blue-50 hover:bg-blue-500 hover:text-white;
 }
 
 .btn.btn-border.btn-secondary {
-    @apply bg-pink-50 hover:bg-pink-500 border-pink-500 
-    text-pink-500 hover:text-white;
+    @apply text-pink-500 border-pink-500 bg-pink-50 hover:bg-pink-500 hover:text-white;
 }
 
 .btn.btn-border.btn-success {
-    @apply bg-emerald-50 hover:bg-emerald-500 border-emerald-500 
-    text-emerald-500 hover:text-white;
+    @apply bg-emerald-50 hover:bg-emerald-500 border-emerald-500 text-emerald-500 hover:text-white;
 }
 
 .btn.btn-border.btn-danger {
-    @apply bg-red-50 hover:bg-red-500 border-red-500 
-    text-red-500 hover:text-white;
+    @apply text-red-500 border-red-500 bg-red-50 hover:bg-red-500 hover:text-white;
 }
 
 .btn.btn-border.btn-info {
-    @apply bg-gray-50 hover:bg-gray-200 border-gray-400 
-    text-gray-500 hover:text-gray-600;
+    @apply text-gray-500 border-gray-400 bg-gray-50 hover:bg-gray-200 hover:text-gray-600;
 }
 
 .btn.btn-border.btn-dark {
-    @apply bg-gray-200 hover:bg-gray-800 border-gray-800 
-    text-gray-800 hover:text-white;
+    @apply text-gray-800 bg-gray-200 border-gray-800 hover:bg-gray-800 hover:text-white;
 }
 
 /* Form */
@@ -529,8 +517,7 @@
 }
 
 .label {
-    @apply block text-xs sm:text-sm 
-    text-gray-600 font-normal mb-2;
+    @apply block mb-2 text-xs font-normal text-gray-600 sm:text-sm;
 }
 
 .field {
@@ -545,8 +532,7 @@ select {
 }
 
 .invalid-field {
-    @apply text-xs font-normal 
-    text-red-500 mt-2 ml-1;
+    @apply mt-2 ml-1 text-xs font-normal text-red-500;
 }
 
 /*
@@ -591,15 +577,15 @@ select {
 }
 
 .modal .modal-content .header {
-    @apply font-medium border-b p-5;
+    @apply p-5 font-medium border-b;
 }
 
 .modal .modal-content .body {
-    @apply text-sm border-b p-5;
+    @apply p-5 text-sm border-b;
 }
 
 .modal .modal-content .footer {
-    @apply text-sm px-5 py-3;
+    @apply px-5 py-3 text-sm;
 }
 
 @keyframes modal-show {
@@ -624,23 +610,19 @@ select {
 }
 
 .alert.success {
-    @apply border-2 border-emerald-300 
-    bg-emerald-100 text-emerald-600;
+    @apply border-2 border-emerald-300 bg-emerald-100 text-emerald-600;
 }
 
 .alert.error {
-    @apply border-2 border-red-400 
-    bg-red-100 text-red-600;
+    @apply text-red-600 bg-red-100 border-2 border-red-400;
 }
 
 .alert.warning {
-    @apply border-2 border-yellow-500 
-    bg-yellow-100 text-yellow-600;
+    @apply text-yellow-600 bg-yellow-100 border-2 border-yellow-500;
 }
 
 .alert.info {
-    @apply border-2 border-cyan-400 
-    bg-cyan-100 text-cyan-600;
+    @apply border-2 border-cyan-400 bg-cyan-100 text-cyan-600;
 }
 
 .alert .close-alert {

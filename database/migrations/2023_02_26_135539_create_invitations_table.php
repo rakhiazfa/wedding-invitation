@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('guest_name');
             $table->boolean('is_already_received')->default(false);
             $table->time('time_received')->nullable();
+            $table->integer('guest_estimates')->nullable();
+            $table->integer('arriving_guest')->nullable();
             $table->foreignId('wedding_id')->constrained('weddings')->cascadeOnDelete();
             $table->timestamps();
         });

@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
         $user = User::create([
             'name' => 'Super Admin',
             'username' => 'superadmin',
-            'email' => 'superadmin@laravel.com',
+            'email' => 'super.admin@laravel.com',
             'password' => Hash::make('q1w2e3r4t5y6'),
         ]);
 

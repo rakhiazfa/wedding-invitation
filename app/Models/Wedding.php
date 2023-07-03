@@ -16,8 +16,18 @@ class Wedding extends Model
      * @var array
      */
     protected $fillable = [
-        'code', 'name', 'grooms_name', 'brides_name',
-        'date', 'hall', 'address', 'owner_id',
+        'code',
+        'name',
+        'grooms_name',
+        'grooms_parents',
+        'brides_name',
+        'brides_parents',
+        'date',
+        'time_start',
+        'time_finish',
+        'hall',
+        'address',
+        'owner_id',
     ];
 
     /**

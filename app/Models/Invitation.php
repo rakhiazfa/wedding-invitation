@@ -16,8 +16,12 @@ class Invitation extends Model
      * @var array
      */
     protected $fillable = [
-        'code', 'qr_code_link', 'guest_name',
-        'is_already_received', 'time_received',
+        'code', 'qr_code_link',
+        'guest_name',
+        'is_already_received',
+        'time_received',
+        'guest_estimates',
+        'arriving_guest',
     ];
 
     /**

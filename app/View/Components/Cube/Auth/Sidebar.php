@@ -81,7 +81,7 @@ class Sidebar extends Component
             $this->user->can('customer.weddings'),
         );
 
-        $this->sidebarMenu->addMenuTitle('Permissions');
+        $this->sidebarMenu->addMenuTitle('Permissions', $this->user->can('roles_and_permissions'));
 
         $this->sidebarMenu->addLinkItem(
             'Roles and Pemissions',

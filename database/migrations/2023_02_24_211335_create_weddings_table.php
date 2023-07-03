@@ -16,8 +16,12 @@ return new class extends Migration
             $table->string('code')->unique();
             $table->string('name');
             $table->string('grooms_name')->nullable();
+            $table->string('grooms_parents')->nullable();
             $table->string('brides_name')->nullable();
+            $table->string('brides_parents')->nullable();
             $table->date('date')->nullable();
+            $table->time('time_start')->nullable();
+            $table->time('time_finish')->nullable();
             $table->string('hall')->nullable();
             $table->string('address')->nullable();
             $table->foreignId('owner_id')->constrained('customers')->cascadeOnDelete();

@@ -27,7 +27,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="label">Groom's Name</label>
+                        <label class="label">Nama Pengantin Pria</label>
                         <input type="text" class="field" name="grooms_name" value="{{ old('grooms_name') }}"
                             placeholder="Enter the groom name . . .">
                         @error('grooms_name')
@@ -36,7 +36,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="label">Bride's Name</label>
+                        <label class="label">Nama Pengantin Wanita</label>
                         <input type="text" class="field" name="brides_name" value="{{ old('brides_name') }}"
                             placeholder="Enter the bride name . . .">
                         @error('brides_name')
@@ -45,7 +45,25 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="label">Wedding Date</label>
+                        <label class="label">Orang Tua Pengantin Pria</label>
+                        <input type="text" class="field" name="grooms_parents" value="{{ old('grooms_parents') }}"
+                            placeholder="Enter the groom's parents name . . .">
+                        @error('grooms_parents')
+                            <p class="invalid-field">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label class="label">Orang Tua Pengantin Wanita</label>
+                        <input type="text" class="field" name="brides_parents" value="{{ old('brides_parents') }}"
+                            placeholder="Enter the bride's parents name . . .">
+                        @error('brides_parents')
+                            <p class="invalid-field">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label class="label">Tanggal Pernikahan</label>
                         <div class="relative">
                             <div data-te-datepicker-init data-te-input-wrapper-init>
                                 <input type="text" class="field" name="date" placeholder="Select a date"
@@ -59,7 +77,25 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="label">Wedding Hall</label>
+                        <label class="label">Waktu Mulai</label>
+                        <input type="time" class="field" name="time_start" value="{{ old('time_start') }}"
+                            placeholder="Enter the wedding start time . . .">
+                        @error('time_start')
+                            <p class="invalid-field">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label class="label">Waktu Selesai</label>
+                        <input type="time" class="field" name="time_finish" value="{{ old('time_finish') }}"
+                            placeholder="Enter the wedding finish time . . .">
+                        @error('time_finish')
+                            <p class="invalid-field">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label class="label">Gedung Pernikahan</label>
                         <input type="text" class="field" name="hall" value="{{ old('hall') }}"
                             placeholder="Enter the wedding hall . . .">
                         @error('hall')
@@ -68,7 +104,7 @@
                     </div>
 
                     <div class="form-group md:col-span-2 lg:col-span-1 xl:col-span-2">
-                        <label class="label">Wedding Address</label>
+                        <label class="label">Alamat Pernikahan</label>
                         <textarea class="field" name="address" rows="3">{{ old('address') }}</textarea>
                         @error('address')
                             <p class="invalid-field">{{ $message }}</p>
