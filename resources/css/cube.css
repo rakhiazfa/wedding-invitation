@@ -1,5 +1,5 @@
 /*
-| Google Fonts
+| Fonts
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
@@ -34,8 +34,37 @@
 
 @layer base {
 
+    @font-face {
+        font-family: 'NT Fabulous Regular';
+        font-style: normal;
+        font-weight: normal;
+        src: local('NT Fabulous Regular'), url('/public/assets/fonts/NT Fabulous (only personal use).woff') format('woff');
+    }
+        
+    
+    @font-face {
+        font-family: 'NT Fabulous alternative Regular';
+        font-style: normal;
+        font-weight: normal;
+        src: local('NT Fabulous alternative Regular'), url('/public/assets/fonts/NT Fabulous alternative (only personal use).woff') format('woff');
+    }
+
+    @font-face {
+        font-family: 'Diallome';
+        font-style: normal;
+        font-weight: normal;
+        src: local('NT Fabulous alternative Regular'), url('/public/assets/fonts/Diallome.woff') format('woff');
+    }
+
     * {
-        @apply text-[0.9rem] antialiased font-light text-gray-800 font-poppins;
+        @apply text-[0.9rem] antialiased font-light;
+
+        font-family: inherit;
+        color: inherit;
+    }
+
+    body {
+        @apply text-gray-800 font-poppins;
     }
 
     a, button {
