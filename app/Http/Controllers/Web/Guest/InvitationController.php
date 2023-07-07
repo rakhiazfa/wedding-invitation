@@ -47,4 +47,39 @@ class InvitationController extends Controller
             'invitation' => $invitation,
         ]);
     }
+
+    public function confirmation(Wedding $wedding, Invitation $invitation, Request $request)
+    {
+        $this->authorize('viewQrCode', [Invitation::class, $wedding, $invitation]);
+
+        $request->validate([
+            'guest_estimates' => ['required', 'numeric'],
+        ]);
+
+        $invitation->guest_estimates = $request->input('guest_estimates');
+        $invitation->save();
+
+        return redirect()->route('invitations.confirmed_invitation', [
+            'wedding' => $wedding,
+            'invitation' => $invitation,
+        ]);
+    }
+
+    public function confirmedInvitation(Wedding $wedding, Invitation $invitation)
+    {
+        $this->authorize('viewQrCode', [Invitation::class, $wedding, $invitation]);
+
+        if ($invitation->is_already_received) {
+
+            return view('guest.invitation_accepted')->with([
+                'wedding' => $wedding,
+                'invitation' => $invitation,
+            ]);
+        }
+
+        return view('guest.confirmed_invitation')->with([
+            'wedding' => $wedding,
+            'invitation' => $invitation,
+        ]);
+    }
 }

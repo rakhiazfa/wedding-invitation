@@ -112,7 +112,8 @@
                         Besar harapan kami jika Bapak/Ibu/Saudara/i berkenan hadir pada acara ini.
                     </p>
 
-                    <button class="bg-[#5F3016] text-white uppercase rounded-lg py-3 px-7">
+                    <button class="bg-[#5F3016] text-white uppercase rounded-lg py-3 px-7 modal-trigger"
+                        data-target="#konfirmasiKehadiran">
                         Konfirmasi Kehadiran
                     </button>
                 </div>
@@ -120,6 +121,39 @@
             </div>
 
         </section>
+
+        <div class="modal" id="konfirmasiKehadiran">
+            <div class="modal-content top">
+                <div class="header">
+                    <h4>Konfirmasi Kehadiran</h4>
+                </div>
+                <div class="body">
+                    <form
+                        action="{{ route('invitations.confirmation', [
+                            'wedding' => $wedding,
+                            'invitation' => $invitation,
+                        ]) }}"
+                        method="POST" id="konfirmasiKehadiranForm">
+                        @csrf
+
+                        <div class="form-group">
+                            <label class="label">Jumlah Tanggungan</label>
+                            <input type="number" class="field" name="guest_estimates" min="1">
+                            @error('guest_estimates')
+                                <p class="invalid-field">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </form>
+                </div>
+                <div class="footer flex justify-end gap-x-5">
+                    <button type="button" class="btn btn-sm btn-info modal-cancel-trigger">Cancel</button>
+                    <button type="button" class="btn btn-sm btn-border btn-primary form-trigger"
+                        data-target="#konfirmasiKehadiranForm">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </div>
 
     </main>
 

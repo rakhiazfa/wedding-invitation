@@ -19,13 +19,13 @@ class RoleAndPermissionSeeder extends Seeder
 
         $superAdmin = Role::create(['name' => 'super-admin']);
 
-        $customer = Role::create(['name' => 'customer']);
-
         /**
          * Call permission:create-permission-routes command.
          * 
          */
 
         Artisan::call('permission:create-permission-routes');
+
+        $customer = Role::create(['name' => 'customer']);
     }
 }
