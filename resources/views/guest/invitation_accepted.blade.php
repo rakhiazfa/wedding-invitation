@@ -21,10 +21,6 @@
                                 <td>: {{ $invitation->time_received }}</td>
                             </tr>
                             <tr>
-                                <th>Time Received</th>
-                                <td>: {{ $invitation->time_received }}</td>
-                            </tr>
-                            <tr>
                                 <th>Guest Estimates</th>
                                 <td>: {{ $invitation->guest_estimates ?? 0 }}</td>
                             </tr>

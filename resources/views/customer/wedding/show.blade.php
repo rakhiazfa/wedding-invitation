@@ -126,6 +126,8 @@
                             <th>Guest Name</th>
                             <th>Invitation Link</th>
                             <th>Already Come?</th>
+                            <th>Guest Estimates</th>
+                            <th>Arriving Guest</th>
                             <th>#</th>
                         </tr>
                     </thead>
@@ -155,6 +157,8 @@
                                         </div>
                                     @endif
                                 </td>
+                                <td>{{ $invitation->guest_estimates ?? 0 }}</td>
+                                <td>{{ $invitation->arriving_guest ?? 0 }}</td>
                                 <th>
                                     <div class="table-actions">
                                         <button type="button" class="copy-to-clipboard"
