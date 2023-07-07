@@ -38,14 +38,32 @@ class InvitationController extends Controller
 
         $this->authorize('viewQrCode', [Invitation::class, $wedding, $invitation]);
 
+        return view('guest.invitation_accepted')->with([
+            'wedding' => $wedding,
+            'invitation' => $invitation,
+            'accessToken' => $accessToken,
+        ]);
+    }
+
+    public function accept(string $accessToken, Request $request)
+    {
+        $combinationCode = explode('.', Crypt::decrypt($accessToken));
+
+        $wedding = Wedding::where('code', $combinationCode[0])->firstOrFail();
+        $invitation = Invitation::where('code', $combinationCode[1])->firstOrFail();
+
+        $this->authorize('viewQrCode', [Invitation::class, $wedding, $invitation]);
+
+        $request->validate([
+            'arriving_guest' => ['required', 'numeric'],
+        ]);
+
+        $invitation->arriving_guest = $request->input('arriving_guest');
         $invitation->is_already_received = true;
         $invitation->time_received = date('H:i:s');
         $invitation->save();
 
-        return view('guest.invitation_accepted')->with([
-            'wedding' => $wedding,
-            'invitation' => $invitation,
-        ]);
+        return back()->with('success', 'Berhasil menerima undangan.');
     }
 
     public function confirmation(Wedding $wedding, Invitation $invitation, Request $request)

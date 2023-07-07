@@ -18,4 +18,6 @@ Route::name('invitations')->prefix('/invitations')->group(function () {
     Route::get('/{wedding:code}/{invitation:code}/confirmed_invitation', [InvitationController::class, 'confirmedInvitation'])->name('.confirmed_invitation');
 
     Route::get('/{accessToken}', [InvitationController::class, 'acceptInvitation'])->name('.accept_invitation');
+
+    Route::post('/{accessToken}', [InvitationController::class, 'accept'])->name('.accept');
 });
