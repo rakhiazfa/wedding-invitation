@@ -32,7 +32,7 @@
 
             <div class="mx-auto text-center">
                 <p class="text-[12px]">Kepada Yth. Bapak/Ibu/Saudara/i</p>
-                <h3 class="text-[32px] my-3">Jhon Doe</h3>
+                <h3 class="text-[32px] my-3">{{ $invitation->guest_name }}</h3>
                 <p class="text-[8px]">*Mohon maaf apabila ada kesalahan nama dan gelar</p>
             </div>
 
@@ -112,48 +112,71 @@
                         Besar harapan kami jika Bapak/Ibu/Saudara/i berkenan hadir pada acara ini.
                     </p>
 
-                    <button class="bg-[#5F3016] text-white uppercase rounded-lg py-3 px-7 modal-trigger"
-                        data-target="#konfirmasiKehadiran">
-                        Konfirmasi Kehadiran
-                    </button>
                 </div>
 
             </div>
 
         </section>
 
-        <div class="modal" id="konfirmasiKehadiran">
-            <div class="modal-content top">
-                <div class="header">
-                    <h4>Konfirmasi Kehadiran</h4>
-                </div>
-                <div class="body">
-                    <form
-                        action="{{ route('invitations.confirmation', [
-                            'wedding' => $wedding,
-                            'invitation' => $invitation,
-                        ]) }}"
-                        method="POST" id="konfirmasiKehadiranForm">
-                        @csrf
+        <section class="px-10 pb-10">
 
-                        <div class="form-group">
-                            <label class="label">Jumlah Tanggungan</label>
-                            <input type="number" class="field" name="guest_estimates" min="1">
-                            @error('guest_estimates')
-                                <p class="invalid-field">{{ $message }}</p>
-                            @enderror
-                        </div>
-                    </form>
+            <h1 class="text-2xl mb-5">Konfirmasi Kehadiran</h1>
+
+            <form action="" method="POST">
+                @csrf
+
+                <div class="grid grid-cols-1 gap-5">
+
+                    <div class="form-group">
+                        <label class="label">Nama</label>
+                        <input type="text" class="field" name="name" value="{{ old('name') }}"
+                            placeholder="Masukan nama anda . . .">
+                        @error('name')
+                            <p class="invalid-field">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label class="label">Status Kehadiran</label>
+                        <select name="presence_status" class="field select2">
+                            <option value="Hadir">Hadir</option>
+                            <option value="Tidak Dapat Hadir">Tidak Dapat Hadir</option>
+                        </select>
+                        @error('presence_status')
+                            <p class="invalid-field">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label class="label">Jumlah Tanggungan</label>
+                        <select name="guest_estimates" class="field select2">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                        @error('guest_estimates')
+                            <p class="invalid-field">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label class="label">Ucapan</label>
+                        <textarea name="wishes" class="field" rows="5"></textarea>
+                        @error('wishes')
+                            <p class="invalid-field">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div class="flex justify-end">
+                        <button type="submit" class="bg-[#5F3016] text-white uppercase rounded-lg py-2 px-5">
+                            Submit
+                        </button>
+                    </div>
+
                 </div>
-                <div class="footer flex justify-end gap-x-5">
-                    <button type="button" class="btn btn-sm btn-info modal-cancel-trigger">Cancel</button>
-                    <button type="button" class="btn btn-sm btn-border btn-primary form-trigger"
-                        data-target="#konfirmasiKehadiranForm">
-                        Submit
-                    </button>
-                </div>
-            </div>
-        </div>
+
+            </form>
+
+        </section>
 
     </main>
 
