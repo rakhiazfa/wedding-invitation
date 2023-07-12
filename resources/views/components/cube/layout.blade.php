@@ -6,9 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <meta property="og:title" content="{{ $meta['title'] ?? '' }}">
-    <meta property="og:description" content="{{ $meta['description'] ?? '' }}">
-    <meta property="og:image" content="{{ $meta['image'] ?? '' }}" />
+    <meta property="description" content="{{ $meta['description'] ?? env('APP_NAME') }}">
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="{{ $meta['title'] ?? env('APP_NAME') }}">
+    <meta property="og:title" content="{{ $meta['title'] ?? env('APP_NAME') }}">
+    <meta property="og:description" content="{{ $meta['description'] ?? env('APP_NAME') }}">
+    <meta property="og:image" itemprop="image" content="{{ $meta['image'] ?? '' }}" />
+    <meta property="og:image:type" content="image/jpg">
+    <meta property="og:image:width" content="500">
+    <meta property="og:image:height" content="500">
 
     @vite('resources/css/cube.css')
 

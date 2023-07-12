@@ -1,7 +1,7 @@
 <x-cube.layout title="Invitation" :meta="[
     'title' => $invitation->wedding->name,
     'description' => $invitation->guest_name,
-    'image' => asset('assets/images/prewedding.jpg'),
+    'image' => asset('assets/images/prewedding-meta.jpg'),
 ]">
 
     <main class="relative max-w-[428px] min-h-screen bg-[#FAF8F4] mx-auto font-nt-fabulous text-[#5F3016]">
