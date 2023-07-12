@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web\Guest;
 
 use App\Http\Controllers\Controller;
 use App\Models\Invitation;
+use App\Models\Presence;
 use App\Models\Wedding;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
@@ -22,6 +23,8 @@ class InvitationController extends Controller
                 'invitation' => $invitation,
             ]);
         }
+
+        $wedding->load('wishes');
 
         return view('guest.invitation')->with([
             'wedding' => $wedding,
@@ -71,33 +74,19 @@ class InvitationController extends Controller
         $this->authorize('viewQrCode', [Invitation::class, $wedding, $invitation]);
 
         $request->validate([
+            'name' => ['required'],
+            'presence_status' => ['required'],
             'guest_estimates' => ['required', 'numeric'],
+            'wishes' => ['required'],
         ]);
+
+        $request->merge(['wedding_id' => $wedding->id]);
 
         $invitation->guest_estimates = $request->input('guest_estimates');
         $invitation->save();
 
-        return redirect()->route('invitations.confirmed_invitation', [
-            'wedding' => $wedding,
-            'invitation' => $invitation,
-        ]);
-    }
+        Presence::create($request->all());
 
-    public function confirmedInvitation(Wedding $wedding, Invitation $invitation)
-    {
-        $this->authorize('viewQrCode', [Invitation::class, $wedding, $invitation]);
-
-        if ($invitation->is_already_received) {
-
-            return view('guest.invitation_accepted')->with([
-                'wedding' => $wedding,
-                'invitation' => $invitation,
-            ]);
-        }
-
-        return view('guest.confirmed_invitation')->with([
-            'wedding' => $wedding,
-            'invitation' => $invitation,
-        ]);
+        return back()->with('success', 'Terima kasih atas konfirmasinya.');
     }
 }

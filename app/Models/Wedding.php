@@ -76,4 +76,9 @@ class Wedding extends Model
             get: fn () => $this->grooms_name . ' & ' . $this->brides_name,
         );
     }
+
+    public function wishes(): HasMany
+    {
+        return $this->hasMany(Presence::class, 'wedding_id');
+    }
 }

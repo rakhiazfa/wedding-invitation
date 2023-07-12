@@ -1,6 +1,6 @@
 <x-cube.layout title="Invitation" :meta="[
     'title' => $invitation->wedding->name,
-    'description' => $invitation->guest_name,
+    'description' => date('d F Y', strtotime($wedding->date)) . ' | to ' . $invitation->guest_name,
     'image' => asset('assets/images/prewedding-meta.jpg'),
     'image_alt' => 'Prewedding',
     'image_type' => 'image/jpg',
@@ -127,11 +127,16 @@
 
         </section>
 
-        <section class="px-10 pb-10">
+        <section class="px-10 pb-14">
 
             <h1 class="text-2xl mb-5">Konfirmasi Kehadiran</h1>
 
-            <form action="" method="POST">
+            <form
+                action="{{ route('invitations.confirmation', [
+                    'wedding' => $wedding,
+                    'invitation' => $invitation,
+                ]) }}"
+                method="POST">
                 @csrf
 
                 <div class="grid grid-cols-1 gap-5">
@@ -148,6 +153,7 @@
                     <div class="form-group">
                         <label class="label">Status Kehadiran</label>
                         <select name="presence_status" class="field select2">
+                            <option value="">-</option>
                             <option value="Hadir">Hadir</option>
                             <option value="Tidak Dapat Hadir">Tidak Dapat Hadir</option>
                         </select>
@@ -157,7 +163,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="label">Jumlah Tanggungan</label>
+                        <label class="label">Jumlah Orang Yang Datang</label>
                         <select name="guest_estimates" class="field select2">
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -187,6 +193,30 @@
 
         </section>
 
+        <section class="bg-[#602F14] text-white py-10">
+            <div class="grid grid-cols-1 gap-7">
+                @foreach ($wedding->wishes as $item)
+                    <div class="text-center">
+                        <h4 class="text-lg mb-3">{{ $item->name }}</h4>
+                        <q>{{ $item->wishes }}</q>
+                    </div>
+                @endforeach
+            </div>
+        </section>
+
     </main>
+
+    @section('scripts')
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                var scrollpos = localStorage.getItem('scrollpos');
+                if (scrollpos) window.scrollTo(0, scrollpos);
+            });
+
+            window.onbeforeunload = function(e) {
+                localStorage.setItem('scrollpos', window.scrollY);
+            };
+        </script>
+    @endsection
 
 </x-cube.layout>
