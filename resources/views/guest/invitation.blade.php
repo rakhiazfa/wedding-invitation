@@ -1,6 +1,6 @@
 <x-cube.layout title="Invitation" :data="[
     'title' => $invitation->wedding->name,
-    'description' => $invitation->$guest_name,
+    'description' => $invitation->guest_name,
     'image' => asset('assets/images/prewedding.jpg'),
 ]">
 
