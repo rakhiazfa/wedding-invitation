@@ -12,10 +12,13 @@
     <meta property="og:site_name" content="{{ $meta['title'] ?? env('APP_NAME') }}">
     <meta property="og:title" content="{{ $meta['title'] ?? env('APP_NAME') }}">
     <meta property="og:description" content="{{ $meta['description'] ?? env('APP_NAME') }}">
+    <meta property="og:url" content="{{ $meta['url'] ?? env('APP_URL') }}" />
     <meta property="og:image" itemprop="image" content="{{ $meta['image'] ?? '' }}" />
-    <meta property="og:image:type" content="image/jpg">
-    <meta property="og:image:width" content="500">
-    <meta property="og:image:height" content="500">
+    <meta property="og:image:type" content="{{ $meta['image_type'] ?? 'image/jpg' }}">
+    <meta property="og:image:width" content="{{ $meta['image_width'] ?? '500' }}">
+    <meta property="og:image:height" content="{{ $meta['image_height'] ?? '500' }}">
+    <meta property="og:image:alt" content="{{ $meta['image_alt'] ?? 'Wedding Invitation' }}" />
+    <meta property="og:updated_time" content="2023-01-17T20:28:50+07:00" />
 
     @vite('resources/css/cube.css')
 
