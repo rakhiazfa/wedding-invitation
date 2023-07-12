@@ -12,13 +12,19 @@ class Layout extends Component
     public string $title;
 
     /**
+     * @var array
+     */
+    public array $meta = [];
+
+    /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(string $title = "")
+    public function __construct(string $title = "", array $meta = [])
     {
         $this->title = $title . ' - ' . env('APP_NAME');
+        $this->meta = $meta;
     }
 
     /**

@@ -1,4 +1,8 @@
-<x-cube.layout title="Invitation">
+<x-cube.layout title="Invitation" :data="[
+    'title' => $invitation->wedding->name,
+    'description' => $invitation->$guest_name,
+    'image' => asset('assets/images/prewedding.jpg'),
+]">
 
     <main class="relative max-w-[428px] min-h-screen bg-[#FAF8F4] mx-auto font-nt-fabulous text-[#5F3016]">
 
