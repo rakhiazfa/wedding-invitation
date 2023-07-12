@@ -1,4 +1,4 @@
-<x-cube.layout title="Invitation" :data="[
+<x-cube.layout title="Invitation" :meta="[
     'title' => $invitation->wedding->name,
     'description' => $invitation->guest_name,
     'image' => asset('assets/images/prewedding.jpg'),
