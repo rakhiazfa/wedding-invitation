@@ -70,7 +70,32 @@
 
         <section class="bg-[#602F14] pt-20 pb-72">
 
-            <img class="mx-auto" src="{{ asset('assets/images/flower-with-text.svg') }}" alt="Flower">
+            <img class="mx-auto mb-10" src="{{ asset('assets/images/flower-with-text.svg') }}" alt="Flower">
+
+            <h1 class="text-[12px] text-white text-center mb-7">yang Insya Allah akan dilaksanakan pada :</h1>
+
+            <div class="flex justify-center items-center gap-5">
+
+                <div class="flex flex-col items-center border border-white text-white p-3 rounded-[10px]">
+                    <span id="days"></span>
+                    <span>Hari</span>
+                </div>
+
+                <div class="flex flex-col items-center border border-white text-white p-3 rounded-[10px]">
+                    <span id="hours"></span>
+                    <span>Jam</span>
+                </div>
+
+                <div class="flex flex-col items-center border border-white text-white p-3 rounded-[10px]">
+                    <span id="minutes"></span>
+                    <span>Menit</span>
+                </div>
+                <div class="flex flex-col items-center border border-white text-white p-3 rounded-[10px]">
+                    <span id="seconds"></span>
+                    <span>Detik</span>
+                </div>
+
+            </div>
 
         </section>
 
@@ -113,7 +138,7 @@
                         <input type="hidden" name="daddr"
                             value="BBPMB tekMIRA Jl. Jend. Sudirman No.623 Wr. Muncang Kec. Bandung Kulon, Kota Bandung Jawa Barat 40211" />
                         <button type="submit" class="bg-[#5F3016] text-white uppercase rounded-lg py-3 px-7 mb-7">
-                            Get Direction
+                            Buka Map
                         </button>
                     </form>
 
@@ -127,69 +152,73 @@
 
         </section>
 
-        <section class="px-10 pb-14">
+        <section class="px-7 pb-14">
 
-            <h1 class="text-2xl mb-5">Konfirmasi Kehadiran</h1>
+            <div class="border-2 border-[#5F3016] rounded-[10px] px-7 py-10">
 
-            <form
-                action="{{ route('invitations.confirmation', [
-                    'wedding' => $wedding,
-                    'invitation' => $invitation,
-                ]) }}"
-                method="POST">
-                @csrf
+                <h1 class="text-2xl text-center mb-5">Konfirmasi Kehadiran Anda</h1>
 
-                <div class="grid grid-cols-1 gap-5">
+                <form
+                    action="{{ route('invitations.confirmation', [
+                        'wedding' => $wedding,
+                        'invitation' => $invitation,
+                    ]) }}"
+                    method="POST">
+                    @csrf
 
-                    <div class="form-group">
-                        <label class="label">Nama</label>
-                        <input type="text" class="field" name="name" value="{{ old('name') }}"
-                            placeholder="Masukan nama anda . . .">
-                        @error('name')
-                            <p class="invalid-field">{{ $message }}</p>
-                        @enderror
+                    <div class="grid grid-cols-1 gap-5">
+
+                        <div class="form-group">
+                            <label class="label">Nama</label>
+                            <input type="text" class="field focus:outline-[#5F3016]" name="name"
+                                value="{{ old('name') }}" placeholder="Masukan nama anda . . .">
+                            @error('name')
+                                <p class="invalid-field">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label class="label">Status Kehadiran</label>
+                            <select name="presence_status" class="field focus:outline-[#5F3016] select2">
+                                <option value="">-</option>
+                                <option value="Hadir">Hadir</option>
+                                <option value="Tidak Dapat Hadir">Tidak Dapat Hadir</option>
+                            </select>
+                            @error('presence_status')
+                                <p class="invalid-field">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label class="label">Jumlah Orang Yang Datang</label>
+                            <select name="guest_estimates" class="field focus:outline-[#5F3016] select2">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                            @error('guest_estimates')
+                                <p class="invalid-field">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label class="label">Ucapan</label>
+                            <textarea name="wishes" class="field focus:outline-[#5F3016]" rows="3"></textarea>
+                            @error('wishes')
+                                <p class="invalid-field">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="flex justify-center mt-3">
+                            <button type="submit" class="bg-[#5F3016] text-white uppercase rounded-lg py-2 px-5">
+                                Konfirmasi
+                            </button>
+                        </div>
+
                     </div>
 
-                    <div class="form-group">
-                        <label class="label">Status Kehadiran</label>
-                        <select name="presence_status" class="field select2">
-                            <option value="">-</option>
-                            <option value="Hadir">Hadir</option>
-                            <option value="Tidak Dapat Hadir">Tidak Dapat Hadir</option>
-                        </select>
-                        @error('presence_status')
-                            <p class="invalid-field">{{ $message }}</p>
-                        @enderror
-                    </div>
+                </form>
 
-                    <div class="form-group">
-                        <label class="label">Jumlah Orang Yang Datang</label>
-                        <select name="guest_estimates" class="field select2">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                        </select>
-                        @error('guest_estimates')
-                            <p class="invalid-field">{{ $message }}</p>
-                        @enderror
-                    </div>
-
-                    <div class="form-group">
-                        <label class="label">Ucapan</label>
-                        <textarea name="wishes" class="field" rows="5"></textarea>
-                        @error('wishes')
-                            <p class="invalid-field">{{ $message }}</p>
-                        @enderror
-                    </div>
-
-                    <div class="flex justify-end">
-                        <button type="submit" class="bg-[#5F3016] text-white uppercase rounded-lg py-2 px-5">
-                            Submit
-                        </button>
-                    </div>
-
-                </div>
-
-            </form>
+            </div>
 
         </section>
 
@@ -209,6 +238,40 @@
     @section('scripts')
         <script>
             document.addEventListener("DOMContentLoaded", function(event) {
+                var end = new Date('08/13/2023 08:00 AM');
+
+                var _second = 1000;
+                var _minute = _second * 60;
+                var _hour = _minute * 60;
+                var _day = _hour * 24;
+                var timer;
+
+                function showRemaining() {
+
+                    var now = new Date();
+
+                    var distance = end - now;
+
+                    if (distance < 0) {
+
+                        clearInterval(timer);
+
+                        return;
+                    }
+
+                    var days = Math.floor(distance / _day);
+                    var hours = Math.floor((distance % _day) / _hour);
+                    var minutes = Math.floor((distance % _hour) / _minute);
+                    var seconds = Math.floor((distance % _minute) / _second);
+
+                    document.getElementById('days').innerHTML = days;
+                    document.getElementById('hours').innerHTML = hours;
+                    document.getElementById('minutes').innerHTML = minutes;
+                    document.getElementById('seconds').innerHTML = seconds;
+                }
+
+                timer = setInterval(showRemaining, 1000);
+
                 var scrollpos = localStorage.getItem('scrollpos');
                 if (scrollpos) window.scrollTo(0, scrollpos);
             });
