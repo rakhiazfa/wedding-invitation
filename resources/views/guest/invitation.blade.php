@@ -170,16 +170,17 @@
 
                         <div class="form-group">
                             <label class="label">Nama</label>
-                            <input type="text" class="field focus:outline-[#5F3016]" name="name"
-                                value="{{ old('name') }}" placeholder="Masukan nama anda . . .">
+                            <input type="text" class="field focus:outline-[#5F3016] border-2 border-[#5F3016]"
+                                name="name" value="{{ old('name') }}" placeholder="Masukan nama anda . . .">
                             @error('name')
                                 <p class="invalid-field">{{ $message }}</p>
                             @enderror
                         </div>
 
                         <div class="form-group">
-                            <label class="label">Status Kehadiran</label>
-                            <select name="presence_status" class="field focus:outline-[#5F3016] select2">
+                            <label class="label">Apakah Kamu Akan Hadir?</label>
+                            <select name="presence_status"
+                                class="field focus:outline-[#5F3016] border-2 border-[#5F3016]">
                                 <option value="">-</option>
                                 <option value="Hadir">Hadir</option>
                                 <option value="Tidak Dapat Hadir">Tidak Dapat Hadir</option>
@@ -190,8 +191,9 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="label">Jumlah Orang Yang Datang</label>
-                            <select name="guest_estimates" class="field focus:outline-[#5F3016] select2">
+                            <label class="label">Jumlah Tamu yang Hadir Termasuk Kamu?</label>
+                            <select name="guest_estimates"
+                                class="field focus:outline-[#5F3016] border-2 border-[#5F3016]">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                             </select>
@@ -202,14 +204,14 @@
 
                         <div class="form-group">
                             <label class="label">Ucapan</label>
-                            <textarea name="wishes" class="field focus:outline-[#5F3016]" rows="3"></textarea>
+                            <textarea name="wishes" class="field focus:outline-[#5F3016] border-2 border-[#5F3016]" rows="3"></textarea>
                             @error('wishes')
                                 <p class="invalid-field">{{ $message }}</p>
                             @enderror
                         </div>
 
                         <div class="flex justify-center mt-3">
-                            <button type="submit" class="bg-[#5F3016] text-white uppercase rounded-lg py-2 px-5">
+                            <button type="submit" class="bg-[#5F3016] text-white uppercase rounded-lg py-3 px-7">
                                 Konfirmasi
                             </button>
                         </div>
@@ -222,15 +224,14 @@
 
         </section>
 
-        <section class="bg-[#602F14] text-white py-10">
-            <div class="grid grid-cols-1 gap-7">
-                @foreach ($wedding->wishes as $item)
-                    <div class="text-center">
-                        <h4 class="text-lg mb-3">{{ $item->name }}</h4>
-                        <q>{{ $item->wishes }}</q>
-                    </div>
-                @endforeach
-            </div>
+        <section class="bg-[#602F14] text-white pb-10 pt-20 relative">
+
+            <img class="absolute top-0 left-0" src="{{ asset('assets/images/flower-dark.png') }}" alt="Flower">
+
+            <div class="w-[298px] h-[168px] bg-white rounded-lg mx-auto mb-10"></div>
+
+            <img class="mx-auto mb-14" src="{{ asset('assets/images/flower-with-text.svg') }}" alt="Flower">
+
         </section>
 
     </main>
