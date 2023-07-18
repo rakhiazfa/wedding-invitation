@@ -70,7 +70,7 @@
 
         <section class="bg-[#602F14] pt-20 pb-72">
 
-            <img class="mx-auto mb-10" src="{{ asset('assets/images/flower-with-text.svg') }}" alt="Flower">
+            <img class="mx-auto mb-14" src="{{ asset('assets/images/flower-with-text.svg') }}" alt="Flower">
 
             <h1 class="text-[12px] text-white text-center mb-7">yang Insya Allah akan dilaksanakan pada :</h1>
 
