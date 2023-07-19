@@ -1,7 +1,7 @@
 <x-cube.layout title="Invitation" :meta="[
     'title' => $invitation->wedding->name,
     'description' => date('d F Y', strtotime($wedding->date)) . ' | to ' . $invitation->guest_name,
-    'image' => asset('assets/images/ADT_7422 1.png'),
+    'image' => asset('assets/images/prewedding_1.png'),
     'image_alt' => 'Prewedding',
     'image_type' => 'image/jpg',
     'image_width' => '500',
@@ -34,7 +34,7 @@
 
             <div class="relative w-[180px] h-[280px] rounded-[90px] mx-auto mb-[73px]">
                 <img class="w-[180px] h-[280px] rounded-[90px] relative z-[2]"
-                    src="{{ asset('assets/images/ADT_7422 1.png') }}" alt="Prewedding">
+                    src="{{ asset('assets/images/prewedding_1.png') }}" alt="Prewedding">
                 <div class="absolute top-0 left-[11.5px] w-full h-full border-2 border-[#5F3016] rounded-[90px]">
                 </div>
             </div>
@@ -48,7 +48,7 @@
         </section>
 
         <section>
-            <img class="w-full object-cover" src="{{ asset('assets/images/ADT_7023 1.png') }}" alt="Prewedding">
+            <img class="w-full object-cover" src="{{ asset('assets/images/prewedding_2.png') }}" alt="Prewedding">
         </section>
 
         <section class="py-14">
