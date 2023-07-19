@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('presences', function (Blueprint $table) {
+        Schema::create('wishes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->enum('presence_status', ['Hadir', 'Tidak Dapat Hadir']);
-            $table->integer('guest_estimates')->nullable();
+            $table->text('wishes');
             $table->foreignId('wedding_id')->constrained('weddings')->cascadeOnDelete();
             $table->timestamps();
         });
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('presences');
+        Schema::dropIfExists('wishes');
     }
 };

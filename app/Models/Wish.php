@@ -6,14 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Presence extends Model
+class Wish extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'name',
-        'presence_status',
-        'guest_estimates',
+        'wishes',
         'wedding_id',
     ];
 

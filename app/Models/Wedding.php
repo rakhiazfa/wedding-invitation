@@ -79,6 +79,6 @@ class Wedding extends Model
 
     public function wishes(): HasMany
     {
-        return $this->hasMany(Presence::class, 'wedding_id');
+        return $this->hasMany(Wish::class, 'wedding_id');
     }
 }
