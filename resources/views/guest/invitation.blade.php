@@ -1,6 +1,6 @@
 <x-cube.layout title="Invitation" :meta="[
-    'title' => $invitation->wedding->name,
-    'description' => date('d F Y', strtotime($wedding->date)) . ' | to ' . $invitation->guest_name,
+    'title' => strtoupper('UNDANGAN PERNIKAHAN | ' . $invitation->wedding->name),
+    'description' => '13 Agustus 2023' . ' | Kepada ' . $invitation->guest_name,
     'image' => asset('assets/images/prewedding-meta.jpg'),
     'image_alt' => 'Prewedding',
     'image_type' => 'image/jpg',
@@ -16,23 +16,24 @@
             <div class="grid grid-cols-[max-content,1fr] mb-[65px]">
                 <div class="relative w-[49px] h-[300px] border-r border-[#5F3016]">
                     <h2
-                        class="text-[24px] font-normal whitespace-nowrap transform origin-bottom-left -rotate-90 translate-x-[25%] absolute bottom-0 left-0">
-                        The Wedding Of
+                        class="text-[24px] font-normal whitespace-nowrap transform origin-bottom-left -rotate-90 translate-x-[25%] absolute bottom-0 -left-7 uppercase">
+                        Undangan Pernikahan
                     </h2>
                 </div>
 
-                <div class="relative flex items-end justify-center">
-                    <h1 class="text-[clamp(1rem,8vw,2.5rem)]">
+                <div class="relative flex items-center justify-center pt-20">
+                    <h1 class="block text-[clamp(1rem,8vw,2.5rem)]">
                         Siti Astari Maulida
                         <br>
                         Ginanjar Mugi. W
                     </h1>
+
                     <img class="absolute top-[30px] right-[34px]" src="{{ asset('assets/images/flower.svg') }}"
                         alt="Flower">
                 </div>
             </div>
 
-            <div class="relative w-[180px] h-[280px] rounded-[90px] mx-auto mb-[73px]">
+            <div class="relative w-[180px] h-[280px] rounded-[90px] mx-auto mb-[70px] -mt-20">
                 <img class="w-[180px] h-[280px] rounded-[90px] relative z-[2]"
                     src="{{ asset('assets/images/prewedding.jpg') }}" alt="Prewedding">
                 <div class="absolute top-0 left-[11.5px] w-full h-full border-2 border-[#5F3016] rounded-[90px]">
