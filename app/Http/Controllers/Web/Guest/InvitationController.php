@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Invitation;
 use App\Models\Presence;
 use App\Models\Wedding;
+use App\Models\Wish;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
@@ -77,7 +78,6 @@ class InvitationController extends Controller
             'name' => ['required'],
             'presence_status' => ['required'],
             'guest_estimates' => ['required', 'numeric'],
-            'wishes' => ['required'],
         ]);
 
         $request->merge(['wedding_id' => $wedding->id]);
@@ -88,5 +88,21 @@ class InvitationController extends Controller
         Presence::create($request->all());
 
         return back()->with('success', 'Terima kasih atas konfirmasinya.');
+    }
+
+    public function sendWishes(Wedding $wedding, Invitation $invitation, Request $request)
+    {
+        $this->authorize('viewQrCode', [Invitation::class, $wedding, $invitation]);
+
+        $request->validate([
+            'name' => ['required'],
+            'wishes' => ['required'],
+        ]);
+
+        $request->merge(['wedding_id' => $wedding->id]);
+
+        Wish::create($request->all());
+
+        return back()->with('success', 'Terima atas ucapannya.');
     }
 }

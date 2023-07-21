@@ -15,6 +15,8 @@ Route::name('invitations')->prefix('/invitations')->group(function () {
 
     Route::post('/{wedding:code}/{invitation:code}/confirmation', [InvitationController::class, 'confirmation'])->name('.confirmation');
 
+    Route::post('/{wedding:code}/{invitation:code}/send-wishes', [InvitationController::class, 'sendWishes'])->name('.send_wishes');
+
     Route::get('/{accessToken}', [InvitationController::class, 'acceptInvitation'])->name('.accept_invitation');
 
     Route::post('/{accessToken}', [InvitationController::class, 'accept'])->name('.accept');
