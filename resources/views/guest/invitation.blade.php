@@ -1,7 +1,7 @@
 <x-cube.layout title="Invitation" :meta="[
     'title' => strtoupper('UNDANGAN PERNIKAHAN | ' . $invitation->wedding->name),
     'description' => '13 Agustus 2023' . ' | Kepada ' . $invitation->guest_name,
-    'image' => asset('assets/images/prewedding_1.png'),
+    'image' => asset('assets/images/prewedding-meta.png'),
     'image_alt' => 'Prewedding',
     'image_type' => 'image/jpg',
     'image_width' => '500',
@@ -52,11 +52,16 @@
             <img class="w-full object-cover" src="{{ asset('assets/images/prewedding_2.png') }}" alt="Prewedding">
         </section>
 
-        <section class="py-14">
+        <section class="py-10">
+
+            <p class="max-w-[350px] text-[12px] text-center mx-auto mb-5">
+                BISMILLAHIRRAHMANIRRAHIM
+            </p>
 
             <p class="max-w-[290px] text-[12px] text-center mx-auto mb-7">
-                Dengan memohon rahmat dan ridha Allah SWT, kami bermaksud menyelengarakana resepsi pernikahan
-                putra-putri kami
+                Assalamuálaikum warahmatullahi wabarakatuh
+                Maha suci Allah yang menciptakan makhluk-Nya berpasang-pasangan
+                Ya Allah perkenankanlah kami menikahkan putra-putri kami
             </p>
 
             <h3 class="text-[27px] font-diallome text-center">Siti Astari Maulida</h3>
@@ -100,27 +105,32 @@
 
         </section>
 
-        <section class="pt-16 pb-5">
+        <section class="pt-5 pb-5">
 
             <div class="absolute w-full aspect-square bg-[#FAF8F4] rounded-full transform translate-y-[-60%]"></div>
 
             <div class="relative z-[2]">
 
-                <div class="text-center mt-[-125px] mb-16">
+                <div class="text-center mt-[-125px] mb-12">
                     <h4 class="text-[27px] font-diallome">Akad</h4>
-                    <p class="text-[12px]">Minggu, 13 Agustus 2023 <br> 09.00 - 11.00</p>
+                    <p class="text-[12px]">Minggu, 13 Agustus 2023 <br> 08.00 - 10.00</p>
                     <img class="mx-auto my-3" src="{{ asset('assets/images/paddy.svg') }}" alt="Paddy">
                     <h4 class="text-[27px] font-diallome">Resepsi</h4>
-                    <p class="text-[12px]">Minggu, 13 Agustus 2023 <br> 11.00 - 13.00</p>
+                    <p class="text-[12px]">Minggu, 13 Agustus 2023 <br> 11.00 - 14.00</p>
                 </div>
 
-                <div class="max-w-[300px] text-center mx-auto mb-12">
+                <div class="max-w-[300px] text-center mx-auto mb-10">
                     <p class="text-[12px] mb-7">
-                        BBPMB tekMIRA Jl. Jend. Sudirman No.623 Wr. Muncang Kec. Bandung Kulon, Kota Bandung Jawa Barat
+                        BBPMB tekMIRA <br> Jl. Jend. Sudirman No.623 Wr. Muncang Kec. Bandung Kulon, Kota Bandung Jawa
+                        Barat
                         40211
                     </p>
+                    <p class="text-[12px] mb-7">
+                        Merupakan suatu kehormatan dan kebahagiaan bagi kami sekeluarga apalagi Bapak/Ibu/Saudara/i
+                        berkenan untuk hadir memberikan doa serta merestui langkah putra-putri kami
+                    </p>
                     <p class="text-[12px]">
-                        Kehadiran serta doa restu Bapak/Ibu/Saudara/i merupaka suatu kehormatan & kebahagiaan bagi kami.
+                        wassalamualaikum warahmatullahi wabarakatuh
                     </p>
                 </div>
 
@@ -129,23 +139,20 @@
                     width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-                <div class="max-w-[300px] text-center mx-auto mb-12 mt-10">
+                <div class="max-w-[300px] text-center mx-auto mt-10">
                     <p class="text-[12px] mb-7">
-                        BBPMB tekMIRA Jl. Jend. Sudirman No.623 Wr. Muncang Kec. Bandung Kulon, Kota Bandung Jawa Barat
+                        BBPMB tekMIRA <br> Jl. Jend. Sudirman No.623 Wr. Muncang Kec. Bandung Kulon, Kota Bandung Jawa
+                        Barat
                         40211
                     </p>
 
                     <form action="http://maps.google.com/maps" method="get" target="_blank">
                         <input type="hidden" name="daddr"
                             value="BBPMB tekMIRA Jl. Jend. Sudirman No.623 Wr. Muncang Kec. Bandung Kulon, Kota Bandung Jawa Barat 40211" />
-                        <button type="submit" class="bg-[#5F3016] text-white uppercase rounded-lg py-3 px-7 mb-7">
-                            Buka Map
+                        <button type="submit" class="bg-[#5F3016] text-white rounded-lg py-3 px-7 mb-7">
+                            Lihat Lokasi
                         </button>
                     </form>
-
-                    <p class="text-[12px] mb-7">
-                        Besar harapan kami jika Bapak/Ibu/Saudara/i berkenan hadir pada acara ini.
-                    </p>
 
                 </div>
 
@@ -159,6 +166,8 @@
 
                 <h1 class="text-2xl text-center mb-5">Konfirmasi Kehadiran Anda</h1>
 
+                <div class="w-full h-[1px] bg-[#5F3016] mb-5"></div>
+
                 <form
                     action="{{ route('invitations.confirmation', [
                         'wedding' => $wedding,
@@ -170,7 +179,7 @@
                     <div class="grid grid-cols-1 gap-5">
 
                         <div class="form-group">
-                            <label class="label">Nama</label>
+                            <label class="block mb-1 text-[#5F3016]">Nama</label>
                             <input type="text" class="field focus:outline-[#5F3016] border-2 border-[#5F3016]"
                                 name="name" value="{{ old('name') }}">
                             @error('name')
@@ -179,7 +188,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="label">Apakah Kamu Akan Hadir?</label>
+                            <label class="block mb-1 text-[#5F3016]">Apakah Kamu Akan Hadir?</label>
                             <select name="presence_status"
                                 class="field focus:outline-[#5F3016] border-2 border-[#5F3016]">
                                 <option value="">-</option>
@@ -192,7 +201,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="label">Jumlah Tamu yang Hadir Termasuk Kamu?</label>
+                            <label class="block mb-1 text-[#5F3016]">Jumlah Tamu yang Hadir Termasuk Kamu?</label>
                             <select name="guest_estimates"
                                 class="field focus:outline-[#5F3016] border-2 border-[#5F3016]">
                                 <option value="1">1</option>
@@ -204,7 +213,7 @@
                         </div>
 
                         <div class="flex justify-center mt-3">
-                            <button type="submit" class="bg-[#5F3016] text-white uppercase rounded-lg py-3 px-7">
+                            <button type="submit" class="bg-[#5F3016] text-white rounded-lg py-3 px-7">
                                 Konfirmasi
                             </button>
                         </div>
@@ -242,7 +251,7 @@
                         <div class="grid grid-cols-1 gap-5">
 
                             <div class="form-group">
-                                <label class="label">Nama</label>
+                                <label class="block mb-1 text-[#5F3016]">Nama</label>
                                 <input type="text" class="field focus:outline-[#5F3016] border-2 border-[#5F3016]"
                                     name="name" value="{{ old('name') }}">
                                 @error('name')
@@ -251,7 +260,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="label">Ucapan Anda</label>
+                                <label class="block mb-1 text-[#5F3016]">Ucapan Anda</label>
                                 <textarea name="wishes" class="field focus:outline-[#5F3016] border-2 border-[#5F3016]" rows="3">{{ old('wishes') }}</textarea>
                                 @error('wishes')
                                     <p class="invalid-field">{{ $message }}</p>
@@ -259,7 +268,7 @@
                             </div>
 
                             <div class="flex justify-center mt-3">
-                                <button type="submit" class="bg-[#5F3016] text-white uppercase rounded-lg py-3 px-7">
+                                <button type="submit" class="bg-[#5F3016] text-white rounded-lg py-3 px-7">
                                     Kirim
                                 </button>
                             </div>
