@@ -120,12 +120,12 @@
                 Ya Allah perkenankanlah kami menikahkan putra-putri kami
             </p>
 
-            <h3 class="text-[27px] font-diallome text-center">Siti Astari Maulida</h3>
+            <h3 class="text-[27px] font-diallome text-center" style="margin-bottom: 0.5rem;">Siti Astari Maulida</h3>
             <p class="text-[12px] text-center">Putri dari Alm. Bpk. Ade Supriatna dan Ibu Cicih Juarsih</p>
 
-            <p class="text-[38px] text-center">&</p>
+            <h3 class="text-[27px] font-diallome text-center" style="margin: 2rem 0;">dengan</h3>
 
-            <h3 class="text-[27px] font-diallome text-center">Ginanjar Mugi Widodo</h3>
+            <h3 class="text-[27px] font-diallome text-center" style="margin-bottom: 0.5rem;">Ginanjar Mugi Widodo</h3>
             <p class="text-[12px] text-center">Putra dari Bpk. Jumino dan Ibu Samikem</p>
 
         </section>
