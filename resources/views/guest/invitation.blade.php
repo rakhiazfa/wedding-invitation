@@ -9,6 +9,30 @@
     'url' => url()->current(),
 ]">
 
+    @section('styles')
+        <style>
+            .slides {
+                width: 100%;
+                aspect-ratio: 1 / 1;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .slide {
+                position: absolute;
+                top: 0;
+                left: 0;
+                transform: translateX(100%);
+                transition: all 0.5s;
+            }
+
+            .slide.active {
+                transform: translateX(0%);
+                transition: all 0.5s;
+            }
+        </style>
+    @endsection
+
     <main class="relative max-w-[428px] min-h-screen bg-[#FAF8F4] mx-auto font-nt-fabulous text-[#5F3016]">
 
         <section class="pb-14">
@@ -43,13 +67,45 @@
             <div class="mx-auto text-center">
                 <p class="text-[12px]">Kepada Yth. Bapak/Ibu/Saudara/i</p>
                 <h3 class="text-[32px] my-3">{{ $invitation->guest_name }}</h3>
-                <p class="text-[8px]">*Mohon maaf apabila ada kesalahan nama dan gelar</p>
+                <p class="text-[10px]">*Mohon maaf apabila ada kesalahan nama dan gelar</p>
             </div>
 
         </section>
 
         <section>
-            <img class="w-full object-cover" src="{{ asset('assets/images/prewedding_2.png') }}" alt="Prewedding">
+            <div class="slides">
+                <div id="slide-1" class="slide active">
+                    <img class="w-full object-cover" src="{{ asset('assets/images/sliders/1.png') }}" alt="Prewedding">
+                </div>
+                <div id="slide-2" class="slide">
+                    <img class="w-full object-cover" src="{{ asset('assets/images/sliders/2.png') }}" alt="Prewedding">
+                </div>
+                <div id="slide-3" class="slide">
+                    <img class="w-full object-cover" src="{{ asset('assets/images/sliders/3.png') }}" alt="Prewedding">
+                </div>
+                <div id="slide-4" class="slide">
+                    <img class="w-full object-cover" src="{{ asset('assets/images/sliders/4.png') }}" alt="Prewedding">
+                </div>
+                <div id="slide-5" class="slide">
+                    <img class="w-full object-cover" src="{{ asset('assets/images/sliders/5.png') }}" alt="Prewedding">
+                </div>
+                <div id="slide-6" class="slide">
+                    <img class="w-full object-cover" src="{{ asset('assets/images/sliders/6.png') }}" alt="Prewedding">
+                </div>
+                <div id="slide-7" class="slide">
+                    <img class="w-full object-cover" src="{{ asset('assets/images/sliders/7.png') }}" alt="Prewedding">
+                </div>
+                <div id="slide-8" class="slide">
+                    <img class="w-full object-cover" src="{{ asset('assets/images/sliders/8.png') }}" alt="Prewedding">
+                </div>
+                <div id="slide-9" class="slide">
+                    <img class="w-full object-cover" src="{{ asset('assets/images/sliders/9.png') }}" alt="Prewedding">
+                </div>
+                <div id="slide-10" class="slide">
+                    <img class="w-full object-cover" src="{{ asset('assets/images/sliders/10.png') }}"
+                        alt="Prewedding">
+                </div>
+            </div>
         </section>
 
         <section class="py-10">
@@ -105,7 +161,7 @@
 
         </section>
 
-        <section class="pt-5 pb-5">
+        <section class="pt-14 pb-5">
 
             <div class="absolute w-full aspect-square bg-[#FAF8F4] rounded-full transform translate-y-[-60%]"></div>
 
@@ -166,7 +222,7 @@
 
                 <h1 class="text-2xl text-center mb-5">Konfirmasi Kehadiran Anda</h1>
 
-                <div class="w-full h-[1px] bg-[#5F3016] mb-5"></div>
+                <div class="w-[75%] h-[1px] bg-[#5F3016] mx-auto mb-5"></div>
 
                 <form
                     action="{{ route('invitations.confirmation', [
@@ -303,6 +359,25 @@
     @section('scripts')
         <script>
             document.addEventListener("DOMContentLoaded", function(event) {
+                var slides = document.querySelector('.slides');
+                var activeSlide = slides.querySelector('.slide.active');
+
+                setInterval(function() {
+
+                    if (activeSlide.nextElementSibling == null) {
+
+                        activeSlide.classList.remove('active');
+                        activeSlide = slides.firstElementChild;
+                        activeSlide.classList.add('active');
+                    } else {
+
+                        activeSlide.classList.remove('active');
+                        activeSlide = activeSlide.nextElementSibling;
+                        activeSlide.classList.add('active');
+                    }
+
+                }, 4000);
+
                 var end = new Date('08/13/2023 08:00 AM');
 
                 var _second = 1000;
