@@ -23,12 +23,14 @@
                 top: 0;
                 left: 0;
                 transform: translateX(100%);
-                transition: all 0.5s;
             }
 
             .slide.active {
                 transform: translateX(0%);
-                transition: all 0.5s;
+            }
+
+            .top-3 {
+                top: 0.75rem;
             }
         </style>
     @endsection
@@ -121,7 +123,7 @@
             </p>
 
             <h3 class="text-[27px] font-diallome text-center" style="margin-bottom: 0.5rem;">Siti Astari Maulida</h3>
-            <p class="text-[12px] text-center">Putri dari Alm. Bpk. Ade Supriatna dan Ibu Cicih Juarsih</p>
+            <p class="text-[12px] text-center">Putri dari Bpk. Ade Supriatna (alm) dan Ibu Cicih Juarsih</p>
 
             <h3 class="text-[27px] font-diallome text-center" style="margin: 2rem 0;">dengan</h3>
 
@@ -286,7 +288,12 @@
 
             <img class="absolute top-0 left-0" src="{{ asset('assets/images/flower-dark.png') }}" alt="Flower">
 
-            <div class="w-[298px] h-[168px] bg-white rounded-lg mx-auto mb-10"></div>
+            <div class="relative w-[298px] h-[168px] bg-white rounded-lg mx-auto mb-10">
+
+                <div class="w-[298px] h-[168px] border-2 border-white rounded-lg mx-auto mb-10 absolute top-3 left-3">
+
+                </div>
+            </div>
 
             <img class="mx-auto mb-14" src="{{ asset('assets/images/flower-with-text.svg') }}" alt="Flower">
 
@@ -295,6 +302,8 @@
                 <div class="border-2 border-[#5F3016] rounded-[10px] p-5">
 
                     <h1 class="text-2xl text-[#5F3016] text-center mb-5">Ucapan & Doa</h1>
+
+                    <div class="h-[1px] bg-[#5F3016] mx-auto mb-5" style="width: 50%;"></div>
 
                     <form
                         action="{{ route('invitations.send_wishes', [
@@ -339,7 +348,7 @@
         </section>
 
         <section class="bg-[#602F14] pb-10 pt-5 px-7">
-            <div class="grid grid-cols-1 gap-5">
+            <div class="grid grid-cols-1 gap-5 overflow-y-auto" style="max-height: 300px; overflow-y: auto;">
                 @foreach ($wedding->wishes as $item)
                     <div class="border-2 border-[#E2ECDF] text-[#E2ECDF] rounded-[10px] p-7">
                         <h2 class="text-[16px] mb-5">{{ $item->name }}</h2>
@@ -376,7 +385,7 @@
                         activeSlide.classList.add('active');
                     }
 
-                }, 4000);
+                }, 1000);
 
                 var end = new Date('08/13/2023 08:00 AM');
 
