@@ -13,7 +13,7 @@
         <style>
             .slides {
                 width: 100%;
-                aspect-ratio: 1 / 1;
+                height: 500px;
                 position: relative;
                 overflow: hidden;
             }
@@ -23,6 +23,12 @@
                 top: 0;
                 left: 0;
                 transform: translateX(100%);
+            }
+
+            .slide .image {
+                width: 100%;
+                height: 500px;
+                object-fit: cover;
             }
 
             .slide.active {
@@ -77,35 +83,34 @@
         <section>
             <div class="slides">
                 <div id="slide-1" class="slide active">
-                    <img class="w-full object-cover" src="{{ asset('assets/images/sliders/1.png') }}" alt="Prewedding">
+                    <img class="image" src="{{ asset('assets/images/sliders/1.png') }}" alt="Prewedding">
                 </div>
                 <div id="slide-2" class="slide">
-                    <img class="w-full object-cover" src="{{ asset('assets/images/sliders/2.png') }}" alt="Prewedding">
+                    <img class="image" src="{{ asset('assets/images/sliders/2.png') }}" alt="Prewedding">
                 </div>
                 <div id="slide-3" class="slide">
-                    <img class="w-full object-cover" src="{{ asset('assets/images/sliders/3.png') }}" alt="Prewedding">
+                    <img class="image" src="{{ asset('assets/images/sliders/3.png') }}" alt="Prewedding">
                 </div>
                 <div id="slide-4" class="slide">
-                    <img class="w-full object-cover" src="{{ asset('assets/images/sliders/4.png') }}" alt="Prewedding">
+                    <img class="image" src="{{ asset('assets/images/sliders/4.png') }}" alt="Prewedding">
                 </div>
                 <div id="slide-5" class="slide">
-                    <img class="w-full object-cover" src="{{ asset('assets/images/sliders/5.png') }}" alt="Prewedding">
+                    <img class="image" src="{{ asset('assets/images/sliders/5.png') }}" alt="Prewedding">
                 </div>
                 <div id="slide-6" class="slide">
-                    <img class="w-full object-cover" src="{{ asset('assets/images/sliders/6.png') }}" alt="Prewedding">
+                    <img class="image" src="{{ asset('assets/images/sliders/6.png') }}" alt="Prewedding">
                 </div>
                 <div id="slide-7" class="slide">
-                    <img class="w-full object-cover" src="{{ asset('assets/images/sliders/7.png') }}" alt="Prewedding">
+                    <img class="image" src="{{ asset('assets/images/sliders/7.png') }}" alt="Prewedding">
                 </div>
                 <div id="slide-8" class="slide">
-                    <img class="w-full object-cover" src="{{ asset('assets/images/sliders/8.png') }}" alt="Prewedding">
+                    <img class="image" src="{{ asset('assets/images/sliders/8.png') }}" alt="Prewedding">
                 </div>
                 <div id="slide-9" class="slide">
-                    <img class="w-full object-cover" src="{{ asset('assets/images/sliders/9.png') }}" alt="Prewedding">
+                    <img class="image" src="{{ asset('assets/images/sliders/9.png') }}" alt="Prewedding">
                 </div>
                 <div id="slide-10" class="slide">
-                    <img class="w-full object-cover" src="{{ asset('assets/images/sliders/10.png') }}"
-                        alt="Prewedding">
+                    <img class="image" src="{{ asset('assets/images/sliders/10.png') }}" alt="Prewedding">
                 </div>
             </div>
         </section>
